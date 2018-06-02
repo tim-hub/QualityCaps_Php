@@ -24,5 +24,9 @@ class CategorySeeder extends Seeder
             'name' => 'kids',
             'description' => 'cute',
         ]);
+
+        factory(App\Category::class, 5)->create()->each(function ($u) {
+
+        });
     }
 }

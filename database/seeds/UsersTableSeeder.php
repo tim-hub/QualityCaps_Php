@@ -27,5 +27,8 @@ class UsersTableSeeder extends Seeder
             'enabled' => false,
             'email_confirmed' => false,
         ]);
+        factory(App\User::class, 5)->create()->each(function ($u) {
+
+        });
     }
 }

@@ -24,5 +24,8 @@ class SupplySeeder extends Seeder
             'name' => 'facebook',
             'description' => 'facebook caps',
         ]);
+        factory(App\Supplier::class, 5)->create()->each(function ($u) {
+
+        });
     }
 }
