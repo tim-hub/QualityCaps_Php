@@ -22,7 +22,7 @@ class CreateOrdersTable extends Migration
 
             $table->string('receiver_name', 100);
 
-            $table->decimal('gst', 10, 2);
+            $table->decimal('gst', 10, 2) -> default(0.15);
             $table->decimal('grand_total', 18, 2);
 
             $table->string('address', 100);
