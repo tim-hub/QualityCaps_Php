@@ -17,6 +17,11 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             CategorySeeder::class,
             SupplySeeder::class,
+
         ]);
+
+        factory(App\Cap::class, 15)->create()->each(function ($u) {
+
+        });
     }
 }
