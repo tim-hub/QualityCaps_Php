@@ -15,6 +15,11 @@ class CategoryController extends Controller
     public function index()
     {
         //
+        $categories = Category::all();
+        // return View::make('category.index') ->with('categories', $categories);
+        return view('category.index', ['categories' => $categories]);
+        // return view('userProfile', ['user' => User::findOrFail($id)]);
+
     }
 
     /**
