@@ -18,7 +18,6 @@ class CategoryController extends Controller
         $categories = Category::all();
         // return View::make('category.index') ->with('categories', $categories);
         return view('category.index', ['categories' => $categories]);
-        // return view('userProfile', ['user' => User::findOrFail($id)]);
 
     }
 
@@ -30,6 +29,7 @@ class CategoryController extends Controller
     public function create()
     {
         //
+        return view('category.create');
     }
 
     /**
@@ -49,9 +49,11 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(int $id)
     {
-        //
+        $category = Category::find($id);
+        return view('category.show', compact('category','id'));
+
     }
 
     /**
@@ -60,10 +62,14 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(int $id)
     {
-        //
+        $category = Category::find($id);
+        return view('category.edit', compact('category','id'));
     }
+
+
+
 
     /**
      * Update the specified resource in storage.
@@ -72,9 +78,14 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, int $id)
     {
         //
+        $passport= Category::find($id);
+        $passport->name=$request->get('name');
+        $passport->email=$request->get('detail');
+        $passport->save();
+        return redirect('category');
     }
 
     /**
@@ -83,8 +94,10 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(int $id)
     {
-        //
+        $category = Category::find($id);
+        $category->delete();
+        return redirect('category')->with('success','Information has been  deleted');
     }
 }
