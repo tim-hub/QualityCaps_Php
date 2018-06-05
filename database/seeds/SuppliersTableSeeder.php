@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Models\Supplier;
+use Illuminate\Support\Facades\DB;
 
 class SuppliersTableSeeder extends Seeder
 {

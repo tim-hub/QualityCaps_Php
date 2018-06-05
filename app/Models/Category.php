@@ -1,12 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Supplier extends Model
+class Category extends Model
 {
-    protected $table = 'suppliers';
+    protected $table = 'categories';
     /**
      * The attributes that are mass assignable.
      *

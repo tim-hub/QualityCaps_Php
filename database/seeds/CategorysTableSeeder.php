@@ -1,17 +1,14 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Models\Category;
 use Illuminate\Support\Facades\DB;
 
-class CategorySeeder extends Seeder
+class CategorysTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
+
         DB::table('categories')->insert([
             'name' => 'Men',
             'description' => 'men\'s fashion',
@@ -25,8 +22,14 @@ class CategorySeeder extends Seeder
             'description' => 'cute',
         ]);
 
-        factory(App\Category::class, 5)->create()->each(function ($u) {
-
+        $categorys = factory(Category::class)->times(15)->make()->each(function ($category, $index) {
+            if ($index == 0) {
+                // $category->field = 'value';
+            }
         });
+
+        Category::insert($categorys->toArray());
     }
+
 }
+
