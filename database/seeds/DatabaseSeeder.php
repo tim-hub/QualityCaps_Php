@@ -17,9 +17,6 @@ class DatabaseSeeder extends Seeder
 		$this->call(SuppliersTableSeeder::class);
         $this->call([
             UsersTableSeeder::class,
-            CategorySeeder::class,
-
-
         ]);
 
         factory(App\Cap::class, 15)->create()->each(function ($u) {

@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
+use App\Models\Category;
 use Illuminate\Http\Request;
+
+/**
+ * This is a controller written by hand
+ *
+ *
+ */
 
 class CategoryController extends Controller
 {
@@ -19,74 +25,6 @@ class CategoryController extends Controller
         // return View::make('category.index') ->with('categories', $categories);
         return view('category.index', ['categories' => $categories]);
 
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-        return view('category.create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function show(int $id)
-    {
-        $category = Category::find($id);
-        return view('category.show', compact('category','id'));
-
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(int $id)
-    {
-        // $category = Category::find($id);
-        // return view('category.edit', compact('category','id'));
-        abort(403, 'Unauthorized action.');
-    }
-
-
-
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, int $id)
-    {
-        //
-        $passport= Category::find($id);
-        $passport->name=$request->get('name');
-        $passport->email=$request->get('detail');
-        $passport->save();
-        return redirect('category');
     }
 
     /**
