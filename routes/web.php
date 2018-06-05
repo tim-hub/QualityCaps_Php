@@ -24,3 +24,5 @@ Route::get('user/{id}', 'ProfileController@showProfile');
 Route::resource('suppliers', 'SuppliersController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
 
 Route::resource('categories', 'CategoriesController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
+
+Route::resource('caps', 'CapsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);

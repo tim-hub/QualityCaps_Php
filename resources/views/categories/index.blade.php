@@ -28,22 +28,32 @@
                                     <td class="text-center"><strong>{{$category->id}}</strong></td>
 
                                     <td>{{$category->name}}</td> <td>{{$category->description}}</td>
-                                    
+
                                     <td class="text-right">
-                                        <a class="btn btn-xs btn-primary" href="{{ route('categories.show', $category->id) }}">
-                                            <i class="glyphicon glyphicon-eye-open"></i> 
-                                        </a>
-                                        
-                                        <a class="btn btn-xs btn-warning" href="{{ route('categories.edit', $category->id) }}">
-                                            <i class="glyphicon glyphicon-edit"></i> 
-                                        </a>
+                                        <ul class="d-inline-flex">
+                                            <li class="list-inline-item">
 
-                                        <form action="{{ route('categories.destroy', $category->id) }}" method="POST" style="display: inline;" onsubmit="return confirm('Delete? Are you sure?');">
-                                            {{csrf_field()}}
-                                            <input type="hidden" name="_method" value="DELETE">
+                                                <a class="btn btn-xs btn-primary" href="{{ route('categories.show', $category->id) }}">
+                                                    Detail
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
 
-                                            <button type="submit" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-trash"></i> </button>
-                                        </form>
+                                                <a class="btn btn-xs btn-warning" href="{{ route('categories.edit', $category->id) }}">
+                                                    Edit
+                                                </a>
+                                            </li>
+
+                                            <li class="list-inline-item">
+
+                                                <form action="{{ route('categories.destroy', $category->id) }}" method="POST" style="display: inline;" onsubmit="return confirm('Delete? Are you sure?');">
+                                                    {{csrf_field()}}
+                                                    <input type="hidden" name="_method" value="DELETE">
+
+                                                    <button type="submit" class="btn btn-xs btn-danger">Delete </button>
+                                                </form>
+                                            </li>
+                                        </ul>
                                     </td>
                                 </tr>
                             @endforeach

@@ -1,8 +1,6 @@
 <?php
 
-namespace App;
-
-use Illuminate\Database\Eloquent\Model;
+namespace App\Models;
 
 class Cap extends Model
 {
@@ -15,4 +13,12 @@ class Cap extends Model
         'name', 'description', 'price', 'image', 'category_id', 'supplier_id'
     ];
 
+    public function category(){
+
+        return $this->hasOne('Category');
+    }
+
+    public function supplier(){
+        return $this->hasOne('Supplier');
+    }
 }

@@ -17,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
 		\App\User::observe(\App\Observers\UserObserver::class);
 		\App\Models\Supplier::observe(\App\Observers\SupplierObserver::class);
         \App\Models\Category::observe(\App\Observers\CategoryObserver::class);
+        \App\Models\Cap::observe(\App\Observers\CapObserver::class);
         //
         Schema::defaultStringLength(191);
     }
