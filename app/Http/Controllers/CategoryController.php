@@ -64,8 +64,9 @@ class CategoryController extends Controller
      */
     public function edit(int $id)
     {
-        $category = Category::find($id);
-        return view('category.edit', compact('category','id'));
+        // $category = Category::find($id);
+        // return view('category.edit', compact('category','id'));
+        abort(403, 'Unauthorized action.');
     }
 
 

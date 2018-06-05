@@ -1,4 +1,4 @@
-# QualityCaps_Php
+# QualityCaps Php
 Unitec Web Application Assignment example.
 
-This is a shopping website.
+- The modification and delete is not required, but delete is implemented.
