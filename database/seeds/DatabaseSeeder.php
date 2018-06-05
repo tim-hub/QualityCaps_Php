@@ -20,8 +20,5 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
         ]);
 
-        factory(App\Cap::class, 15)->create()->each(function ($u) {
-
-        });
     }
 }

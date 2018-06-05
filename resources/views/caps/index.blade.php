@@ -17,7 +17,7 @@
                         <thead>
                             <tr>
                                 <th class="text-center">#</th>
-                                <th>Chema=category_id</th> <th>Supplier_id</th> <th>Name</th> <th>Description</th> <th>Price</th> <th>Image</th>
+                                <th>Category_id</th> <th>Supplier_id</th> <th>Name</th> <th>Description</th> <th>Price</th> <th>Image</th>
                                 <th class="text-right">OPTIONS</th>
                             </tr>
                         </thead>
@@ -27,7 +27,7 @@
                                 <tr>
                                     <td class="text-center"><strong>{{$cap->id}}</strong></td>
 
-                                    <td>{{$cap->chema=category_id}}</td> <td>{{$cap->supplier_id}}</td> <td>{{$cap->name}}</td> <td>{{$cap->description}}</td> <td>{{$cap->price}}</td> <td>{{$cap->image}}</td>
+                                    <td>{{$cap->category_id}}</td> <td>{{$cap->supplier_id}}</td> <td>{{$cap->name}}</td> <td>{{$cap->description}}</td> <td>{{$cap->price}}</td> <td>{{$cap->image}}</td>
 
 
 

@@ -23,9 +23,9 @@
                     </div>
                 </div>
 
-                <label>Chema=category_id</label>
+                <label>Category_id</label>
 <p>
-	{{ $cap->chema=category_id }}
+	{{ $cap->category_id }}
 </p> <label>Supplier_id</label>
 <p>
 	{{ $cap->supplier_id }}
