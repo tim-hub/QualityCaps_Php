@@ -10,11 +10,11 @@ class SupplierPolicy extends Policy
     public function update(User $user, Supplier $supplier)
     {
         // return $supplier->user_id == $user->id;
-        return true;
+        return  $user-> role >0;
     }
 
     public function destroy(User $user, Supplier $supplier)
     {
-        return true;
+        return  $user-> role >0;
     }
 }

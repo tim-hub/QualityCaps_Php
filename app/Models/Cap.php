@@ -15,10 +15,10 @@ class Cap extends Model
 
     public function category(){
 
-        return $this->hasOne('Category');
+        return $this->belongsTo('Category');
     }
 
     public function supplier(){
-        return $this->hasOne('Supplier');
+        return $this->belongsTo('Supplier');
     }
 }

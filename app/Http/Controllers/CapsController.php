@@ -27,6 +27,7 @@ class CapsController extends Controller
 
 	public function create(Cap $cap)
 	{
+        $this->authorize('update', $cap);
 		return view('caps.create_and_edit', compact('cap'));
 	}
 

@@ -27,6 +27,7 @@ class SuppliersController extends Controller
 
 	public function create(Supplier $supplier)
 	{
+        $this->authorize('update', $supplier);
 		return view('suppliers.create_and_edit', compact('supplier'));
 	}
 

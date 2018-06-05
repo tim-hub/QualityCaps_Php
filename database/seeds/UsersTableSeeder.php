@@ -3,6 +3,8 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
+use App\User;
+
 class UsersTableSeeder extends Seeder
 {
     /**
@@ -12,22 +14,36 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+
         DB::table('users')->insert([
-            'name' => 'asd1',
-            'email' => 'asd1'.'@mail.com',
+            'name' => 'admin',
+            'email' => 'admin'.'@mail.com',
             'password' => bcrypt('12345678'),
             'enabled' => true,
             'email_confirmed' => true,
+            'role' => 9,
         ]);
+
         DB::table('users')->insert([
-            'name' => 'asd2',
-            'email' => 'asd2'.'@mail.com',
+            'name' => 'user1',
+            'email' => 'user1'.'@mail.com',
+            'password' => bcrypt('12345678'),
+            'enabled' => true,
+            'email_confirmed' => true,
+            'role' => 0,
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'user2',
+            'email' => 'user2'.'@mail.com',
             'password' => bcrypt('12345678'),
             'enabled' => false,
             'email_confirmed' => false,
+            'role' => 0,
         ]);
-        factory(App\User::class, 5)->create()->each(function ($u) {
+
+
+        factory(App\User::class, 1)->create()->each(function ($u) {
 
         });
     }

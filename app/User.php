@@ -26,4 +26,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+    * this is a tricky way to manage website
+    * customer role is 0
+    * manager is higher than 0
+    * if it is higher than, it means than user has permission
+    * @param int $r
+    */
+
+    public function hasPermission($r){
+        return $this -> role > $r;
+    }
 }

@@ -27,6 +27,7 @@ class CategoriesController extends Controller
 
 	public function create(Category $category)
 	{
+        $this->authorize('update', $category);
 		return view('categories.create_and_edit', compact('category'));
 	}
 
