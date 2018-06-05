@@ -13,7 +13,7 @@ class SupplySeeder extends Seeder
     public function run()
     {
         DB::table('suppliers')->insert([
-            'name' => 'baidu',
+            'name' => 'amazon',
             'description' => 'baidu caps',
         ]);
         DB::table('suppliers')->insert([
