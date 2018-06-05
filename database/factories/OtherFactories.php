@@ -20,12 +20,12 @@ $factory->define(App\Category::class, function (Faker $faker) {
     ];
 });
 
-$factory->define(App\Supplier::class, function (Faker $faker) {
-    return [
-        'name' => $faker->name,
-        'description' => $faker ->text,
-    ];
-});
+// $factory->define(App\Supplier::class, function (Faker $faker) {
+//     return [
+//         'name' => $faker->name,
+//         'description' => $faker ->text,
+//     ];
+// });
 
 $factory->define(App\Cap::class, function (Faker $faker) {
     return [
