@@ -33,13 +33,53 @@
             </div>
 
 
-            <br/>
+
 
         </div>
     </div>
+    <br/>
+    <br/>
+
     <div class="row">
 
+            <div class="col-md-4 col-sm-4">
+                <div class="thumbnail" >
+                    <img class="img-fluid img-thumbnail"
+                    src="{{ asset('images/w1.jpg') }}"
+                    alt="women" >
+                    <div class="caption text-center">
+                        <a>
+                            <h3>Women Beauties</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
+            <div class="col-md-4 col-sm-4">
+                <div class="thumbnail" >
+                    <img class="img-fluid img-thumbnail"
+                    src="{{ asset('images/m1.jpg') }}"
+                    alt="women" >
+                    <div class="caption text-center">
+                        <a>
+                            <h3>Handome Men</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-4">
+                <div class="thumbnail" >
+                    <img class="img-fluid img-thumbnail"
+                    src="{{ asset('images/k_caps.jpg') }}"
+                    alt="women" >
+                    <div class="caption text-center">
+                        <a>
+                            <h3>Cute Kids</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
 
             {{-- <br />
@@ -48,23 +88,6 @@
 
 
 
-            <div class="row">
-
-                    @*<div class="col-md-3 col-sm-3">
-
-                        <div class="thumbnail" >
-
-                            <img class="popular_thumbnail img-thumbnail" src="~/images/m_red.jpg" alt="red" >
-
-                            <div class="caption">
-
-                                <a href="#" class="" role="button"><h3>All Popular Now</h3></a>
-
-                            </div>
-
-                        </div>
-
-                    </div>*@
 
                     <div class="col-md-4 col-sm-4">
 
