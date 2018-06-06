@@ -16,7 +16,7 @@ class CapsController extends Controller
 
 	public function index()
 	{
-		$caps = Cap::paginate();
+		$caps = Cap::paginate(16);
 		return view('caps.index', compact('caps'));
 	}
 
