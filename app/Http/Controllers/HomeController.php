@@ -23,12 +23,22 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home.home');
+        return view('home.index');
     }
+        /**
+     * Display about.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function about()
     {
         return view('home.about');
     }
+        /**
+     * Display contact info.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function contact()
     {
         return view('home.contact');
