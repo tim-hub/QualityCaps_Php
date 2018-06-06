@@ -17,9 +17,16 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+
 
 Route::get('user/{id}', 'ProfileController@showProfile');
+
+// Route::resource('/', 'HomeController')->name('home');
+
+Route::get('/', 'HomeController@index');
+Route::get('/about', 'HomeController@about');
+Route::get('/contact', 'HomeController@contact');
+
 
 Route::resource('suppliers', 'SuppliersController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
 
