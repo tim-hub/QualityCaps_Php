@@ -14,12 +14,11 @@
                 <li><a class="nav-link" href="{{ url('/about') }}">{{ __('About') }}</a></li>
                 <li><a class="nav-link" href="{{ url('/contact')  }}">{{ __('Contact') }}</a></li>
 
-                @guest
-                    <li>guest</li>
-                @else
-                    <li>user</li>
-                @endguest
 
+                @if (!Auth::guest() && Auth::user()-> role >0)
+                <li><a class="nav-link" href="{{ url('/')  }}">{{ __('Admin') }}</a></li>
+
+                @endif
 
             </ul>
 

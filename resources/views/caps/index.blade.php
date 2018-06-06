@@ -6,8 +6,11 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h1>
-                    <i class="glyphicon glyphicon-align-justify"></i> Cap
+                    Cap
+                    @if (!Auth::guest() && Auth::user()-> role >0)
+
                     <a class="btn btn-success pull-right" href="{{ route('caps.create') }}"><i class="glyphicon glyphicon-plus"></i> Create</a>
+                    @endif
                 </h1>
             </div>
 
@@ -17,7 +20,13 @@
                         <thead>
                             <tr>
                                 <th class="text-center">#</th>
-                                <th>Category_id</th> <th>Supplier_id</th> <th>Name</th> <th>Description</th> <th>Price</th> <th>Image</th>
+
+                                <th>Name</th>
+                                <th>Description</th>
+                                 <th>Price</th>
+                                  <th>Image</th>
+                                  <th>Category</th>
+                                  <th>Supplier</th>
                                 <th class="text-right">OPTIONS</th>
                             </tr>
                         </thead>
@@ -27,9 +36,12 @@
                                 <tr>
                                     <td class="text-center"><strong>{{$cap->id}}</strong></td>
 
-                                    <td>{{$cap->category_id}}</td> <td>{{$cap->supplier_id}}</td> <td>{{$cap->name}}</td> <td>{{$cap->description}}</td> <td>{{$cap->price}}</td> <td>{{$cap->image}}</td>
 
+                                    <td>{{$cap->name}}</td>
+                                    <td>{{$cap->description}}</td> <td>{{$cap->price}}</td> <td>{{$cap->image}}</td>
 
+                                    <td>{{$cap->category->name}}</td>
+                                    <td>{{$cap->supplier->name}}</td>
 
                                     <td class="text-right">
                                         <ul class="d-inline-flex">
@@ -39,7 +51,7 @@
                                             Detail
                                         </a>
                                         </li>
-
+                                        @if (!Auth::guest() && Auth::user()-> role >0)
                                         <li class="list-inline-item">
                                         <a class="btn btn-xs btn-warning" href="{{ route('caps.edit', $cap->id) }}">
                                             Edit
@@ -58,6 +70,7 @@
                                         </form>
                                         </li>
                                         </ul>
+                                        @endif
                                     </td>
 
                                 </tr>
