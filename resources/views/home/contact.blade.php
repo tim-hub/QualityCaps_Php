@@ -15,7 +15,7 @@
 
             <br/>
             <abbr title="About">About:</abbr>
-            <a href="/Home/About">More</a>
+            <a href="about">More</a>
         </address>
 
     </div>
