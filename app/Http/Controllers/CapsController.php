@@ -14,8 +14,23 @@ class CapsController extends Controller
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
-	public function index()
+	public function index(Request $request)
 	{
+        // http://www.codovel.com/complete-laravel-55-crud-search-sort-and-pagination-tutorial.html
+        //
+        $search = $request->get('search');
+        $category = $request->get('category') != '' ? $request->get('category') : -1;
+        $field = $request->get('field') != '' ? $request->get('field') : 'name';
+        $sort = $request->get('sort') != '' ? $request->get('sort') : 'asc';
+
+        $results = new Cap();
+
+        if ($category != -1){
+            $results = $results->where('category_id', $category);
+        }
+
+
+
 		$caps = Cap::paginate(16);
 		return view('caps.index', compact('caps'));
 	}
