@@ -10,8 +10,7 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -31,7 +30,12 @@
             @yield('content')
         </main>
 
+        <hr>
+
         @include('layouts.footer')
     </div>
 </body>
+
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}" defer></script>
 </html>
