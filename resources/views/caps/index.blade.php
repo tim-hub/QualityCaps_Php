@@ -8,11 +8,33 @@
             Cap
             <a class="btn btn-success pull-right" href="{{ route('caps.create') }}"><i class="glyphicon glyphicon-plus"></i> Create</a>
             @endif
+
+
         </h1>
     </div>
     @if($caps->count())
     <div class="row">
+            {{-- {!! Form::open(['method'=>'get']) !!}
+            {!! Form::select('gender',['-1'=>'Select Gender','0'=>'Male','1'=>'Female', '2'=>'Kids'],null,['class'=>'form-control','onChange'=>'form.submit()']) !!}
+            <div class="col-sm-5 form-group">
+                <div class="input-group">
+                    <input class="form-control" id="search"
+                            value="{{ request('search') }}"
+                            placeholder="Search name" name="search"
+                            type="text" id="search"/>
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-warning"
+                        >
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </div>
 
+
+            <input type="hidden" value="{{request('field')}}" name="field"/>
+            <input type="hidden" value="{{request('sort')}}" name="sort"/>
+            {!! Form::close() !!} --}}
 
                         <tr>
                             <th class="text-center">#</th>

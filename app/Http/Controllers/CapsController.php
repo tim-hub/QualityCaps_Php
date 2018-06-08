@@ -29,9 +29,15 @@ class CapsController extends Controller
             $results = $results->where('category_id', $category);
         }
 
+        if ($field !=NULL && $sort !=NULL && $search!=NULL){
+        $results = $results -> orderBy($field, $sort)
+            ->paginate(16)
+            ->withPath('?search='.$search.'&gender='.$gender.'&field='.$field.'&sort='.$sort);
+        }else{
+            $results = Cap::paginate(16);
+        }
 
-
-		$caps = Cap::paginate(16);
+        $caps = $results;
 		return view('caps.index', compact('caps'));
 	}
 
