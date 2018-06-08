@@ -23,4 +23,27 @@ class Cap extends Model
     public function supplier(){
         return $this->belongsTo('App\Models\Supplier');
     }
+
+    /**
+     * Get the index name for the model.
+     *
+     * @return string
+     */
+    public function searchableAs()
+    {
+        return 'name_index';
+    }
+    /**
+     * Get the indexable data array for the model.
+     *
+     * @return array
+     */
+    public function toSearchableArray()
+    {
+        $array = $this->toArray();
+
+        // Customize array...
+
+        return $array;
+    }
 }
