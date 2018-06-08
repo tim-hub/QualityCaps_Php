@@ -11,13 +11,40 @@ class CapsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->middleware('auth', ['except' => ['index', 'show', 'search']]);
     }
 
     public function search(Request $request){
 
 
+        //https://laracasts.com/discuss/channels/laravel/simple-search-in-laravel?page=1
+
+
+        // First we define the error message we are going to show if no keywords
+        // existed or if no results found.
+        $caps = Cap::all();
+
+        $error = ['error' => 'No results found, please try with different keywords.'];
+
+
+        // Making sure the user entered a keyword.
+        if($request->has('q')) {
+            $q = $request ->get('q');
+
+            $caps = Cap::where(
+                        'name', 'like', '%'.$q.'%'
+            )
+            ->orWhere(
+                    'description', 'like', '%'.$q.'%'
+            )
+            -> get();
+        }
+
+
+        // Return the error message if no keywords existed
         return view('caps.search', compact('caps'));
+
+        // return view('caps.search', compact('caps'));
     }
 
 	public function index(Request $request)
