@@ -28,8 +28,11 @@ Route::get('/about', 'HomeController@about');
 Route::get('/contact', 'HomeController@contact');
 
 
+Route::get('/search', 'CapsController@search');
+
+
 Route::resource('suppliers', 'SuppliersController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
 
 Route::resource('categories', 'CategoriesController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
 
-Route::resource('caps', 'CapsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
+Route::resource('caps', 'CapsController');
