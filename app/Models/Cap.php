@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cap extends Model
 {
+    use Searchable;
     protected $table = 'caps';
     /**
      * The attributes that are mass assignable.
