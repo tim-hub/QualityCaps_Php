@@ -14,6 +14,12 @@ class CapsController extends Controller
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
+    public function search(Request $request){
+
+
+        return view('caps.search', compact('caps'));
+    }
+
 	public function index(Request $request)
 	{
         // http://www.codovel.com/complete-laravel-55-crud-search-sort-and-pagination-tutorial.html
