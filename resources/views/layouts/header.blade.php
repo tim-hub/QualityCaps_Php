@@ -35,7 +35,7 @@
             <ul class="navbar-nav ml-auto">
                 <li>
                     <form class="form-group"
-                    style="margin-top: 0.4em;"
+                    style="margin-top: 0.2em;"
                     method="get"
                     action="{{route('search')}}">
 
@@ -50,8 +50,8 @@
 
                 <!-- Authentication Links -->
                 @guest
-                    <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                    <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                    <li> <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                    <li> <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                 @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
