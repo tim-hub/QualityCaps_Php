@@ -14,18 +14,17 @@
     </div>
     @if($caps->count())
     <div class="row">
-        <span class="col-6">
+        <span class="col-6 col-md-4">
                 Name <a href="{{route('caps.index')}}?field=name">
                         Ascending
                     </a>
-
 
                     || <a href="{{route('caps.index')}}?field=name&sort=desc">
                         Descending
                     </a>
 
         </span>
-        <span class="col-6">
+        <span class="col-6 col-md-4">
                 Price <a href="{{route('caps.index')}}?field=price">
                         Ascending
                     </a>
@@ -34,11 +33,13 @@
                     </a>
 
         </span>
+        <span class="col-6 col-md-4">
+                <form method='GET'  action="{{route('caps.index')}}">
+                    <input type="text" name="price" value="" />
+                    <input type="submit" class="btn" value="$">
+                </form>
 
-        <br/>
-        <br/>
-
-
+        </span>
     </div>
     <hr>
 
