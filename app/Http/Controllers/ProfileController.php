@@ -24,9 +24,19 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function showProfile($id)
+    public function showProfile(User $user)
     {
-        return view('userProfile', ['user' => User::findOrFail($id)]);
+        // return view('userProfile', ['user' => User::findOrFail($id)]);
+        return view('userProfile', compact('user'));
+    }
+
+    /**
+     * Display admin page.
+     * @return Response
+     */
+    public function admin()
+    {
+        return view('home.contact');
     }
 }
 

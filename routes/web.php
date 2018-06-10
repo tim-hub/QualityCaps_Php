@@ -18,8 +18,8 @@
 Auth::routes();
 
 
-
-Route::get('user/{id}', 'ProfileController@showProfile');
+// [Implicit Binding - Implicit Route Model Binding](https://laracasts.com/discuss/channels/laravel/get-users-information)
+Route::get('user/{user}', 'ProfileController@showProfile')->name('profile');
 
 // Route::resource('/', 'HomeController')->name('home');
 
