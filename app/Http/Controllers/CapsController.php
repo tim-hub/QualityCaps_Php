@@ -19,13 +19,9 @@ class CapsController extends Controller
 
         //https://laracasts.com/discuss/channels/laravel/simple-search-in-laravel?page=1
 
-
-        // First we define the error message we are going to show if no keywords
-        // existed or if no results found.
         $caps = Cap::all();
 
         $error = ['error' => 'No results found, please try with different keywords.'];
-
 
         // Making sure the user entered a keyword.
         if($request->has('q')) {
@@ -41,10 +37,8 @@ class CapsController extends Controller
         }
 
 
-        // Return the error message if no keywords existed
         return view('caps.search', compact('caps'));
 
-        // return view('caps.search', compact('caps'));
     }
 
 	public function index(Request $request)

@@ -78,6 +78,7 @@
 
         {{-- {!! $caps->render() !!} --}}
     @else
+    {{-- show message if there is no caps found --}}
         <h3 class="text-center alert alert-info">Sorrt We Can Not Find Anything!</h3>
     @endif
 </div>
