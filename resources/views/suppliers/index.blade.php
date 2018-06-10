@@ -28,21 +28,21 @@
                                     <td class="text-center"><strong>{{$supplier->id}}</strong></td>
 
                                     <td>{{$supplier->name}}</td> <td>{{$supplier->description}}</td>
-                                    
+
                                     <td class="text-right">
                                         <a class="btn btn-xs btn-primary" href="{{ route('suppliers.show', $supplier->id) }}">
-                                            <i class="glyphicon glyphicon-eye-open"></i> 
+                                            Detail
                                         </a>
-                                        
+
                                         <a class="btn btn-xs btn-warning" href="{{ route('suppliers.edit', $supplier->id) }}">
-                                            <i class="glyphicon glyphicon-edit"></i> 
+                                            Edit
                                         </a>
 
                                         <form action="{{ route('suppliers.destroy', $supplier->id) }}" method="POST" style="display: inline;" onsubmit="return confirm('Delete? Are you sure?');">
                                             {{csrf_field()}}
                                             <input type="hidden" name="_method" value="DELETE">
 
-                                            <button type="submit" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-trash"></i> </button>
+                                            <button type="submit" class="btn btn-xs btn-danger">Delete </button>
                                         </form>
                                     </td>
                                 </tr>
