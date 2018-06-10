@@ -19,8 +19,8 @@ Auth::routes();
 
 
 // [Implicit Binding - Implicit Route Model Binding](https://laracasts.com/discuss/channels/laravel/get-users-information)
-Route::get('user/{user}', 'ProfileController@showProfile')->name('profile');
-
+Route::get('user/profile', 'ProfileController@show')->name('profile');
+Route::get('user/admin', 'ProfileController@admin')->name('admin');
 // Route::resource('/', 'HomeController')->name('home');
 
 Route::get('/', 'HomeController@index');
@@ -36,3 +36,7 @@ Route::resource('suppliers', 'SuppliersController', ['only' => ['index', 'show',
 Route::resource('categories', 'CategoriesController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
 
 Route::resource('caps', 'CapsController');
+
+// users controller new way
+// Route::resource('users', 'ProfileController',
+// ['only' => ['admin', 'show', ]]);
