@@ -28,7 +28,7 @@ Route::get('/about', 'HomeController@about');
 Route::get('/contact', 'HomeController@contact');
 
 
-Route::get('/search', 'CapsController@search');
+Route::get('/search', 'CapsController@search') ->name('search');
 
 
 Route::resource('suppliers', 'SuppliersController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
