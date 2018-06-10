@@ -5,8 +5,8 @@
             <img
             class="img-rounded"
             style="
-            max-width:50px;
-            margin-top: -0.4em;
+                max-width:50px;
+                margin-top: -0.4em;
             "
             src="{{ asset('images/logo.png')}}" />
         </a>
@@ -20,13 +20,9 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
-                <li>
-
-                </li>
                 <li><a class="nav-link" href="{{ route('caps.index') }}">{{ __('Products') }}</a></li>
                 <li><a class="nav-link" href="{{ url('/about') }}">{{ __('About') }}</a></li>
                 <li><a class="nav-link" href="{{ url('/contact')  }}">{{ __('Contact') }}</a></li>
-
 
                 @if (!Auth::guest() && Auth::user()-> role >0)
                 <li><a class="nav-link" href="{{ url('/')  }}">{{ __('Admin') }}</a></li>
