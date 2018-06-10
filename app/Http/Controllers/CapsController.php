@@ -45,7 +45,7 @@ class CapsController extends Controller
 	{
         // http://www.codovel.com/complete-laravel-55-crud-search-sort-and-pagination-tutorial.html
         //
-        $search = $request->get('search');
+
         $category = $request->get('category') != '' ? $request->get('category') : -1;
         $field = $request->get('field') != '' ? $request->get('field') : 'name';
         $sort = $request->get('sort') != '' ? $request->get('sort') : 'asc';
@@ -56,13 +56,10 @@ class CapsController extends Controller
             $results = $results->where('category_id', $category);
         }
 
-        if ($field !=NULL && $sort !=NULL && $search!=NULL){
+
         $results = $results -> orderBy($field, $sort)
             ->paginate(16)
-            ->withPath('?search='.$search.'&gender='.$gender.'&field='.$field.'&sort='.$sort);
-        }else{
-            $results = Cap::paginate(16);
-        }
+            ->withPath('&category='.$category.'&field='.$field.'&sort='.$sort);
 
         $caps = $results;
 		return view('caps.index', compact('caps'));
