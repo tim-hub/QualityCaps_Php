@@ -25,7 +25,7 @@
                 <li><a class="nav-link" href="{{ url('/contact')  }}">{{ __('Contact') }}</a></li>
 
                 @if (!Auth::guest() && Auth::user()-> role >0)
-                <li><a class="nav-link" href="{{ url('/')  }}">{{ __('Admin') }}</a></li>
+                <li><a class="nav-link" href="{{ route('admin')  }}">{{ __('Admin') }}</a></li>
 
                 @endif
 
