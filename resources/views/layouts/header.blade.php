@@ -33,6 +33,21 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
+                <li>
+                    <form class="form-group"
+                    style="margin-top: 0.4em;"
+                    method="get"
+                    action="{{route('search')}}">
+
+                        <input style="max-width:80px; "type="text" name="q">
+                        <input type="submit" class="btn" value="Search">
+
+                    </form>
+
+
+                </li>
+
+
                 <!-- Authentication Links -->
                 @guest
                     <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
