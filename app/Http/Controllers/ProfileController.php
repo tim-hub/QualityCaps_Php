@@ -21,13 +21,25 @@ class ProfileController extends Controller
     /**
      * Show the profile for the given user.
      *
-     * @param  int  $id
+     * @param  null
      * @return Response
      */
-    public function showProfile(User $user)
+    public function show()
     {
         // return view('userProfile', ['user' => User::findOrFail($id)]);
-        return view('userProfile', compact('user'));
+
+        /*
+        *
+        This uses the Auth facade. A list of all available facades is in config/app.php under aliases:
+
+        What if I need Auth in my controller? Injecting an instance of Guard like shown
+         in the question works, but you don't need to.
+         You can use the Auth facade like we did in the template:
+        *
+        */
+        $user = \Auth::user();
+
+        return view('users.userProfile', compact('user'));
     }
 
     /**
@@ -36,7 +48,17 @@ class ProfileController extends Controller
      */
     public function admin()
     {
-        return view('home.contact');
+        $user = \Auth::user();
+
+
+        if ($user -> role >8){
+            return view('users.adminIndex');
+        }
+        else{
+            return view('users.userProfile', compact('user'));
+        }
+
+        // return view('users.adminIndex');
     }
 }
 
