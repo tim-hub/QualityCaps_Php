@@ -50,7 +50,6 @@ class ProfileController extends Controller
     {
         $user = \Auth::user();
 
-
         if ($user -> role >8){
             return view('users.adminIndex');
         }
