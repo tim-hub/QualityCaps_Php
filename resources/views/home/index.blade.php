@@ -62,7 +62,7 @@
                     alt="women" >
                     <div class="caption text-center">
                     <a href="{{ url('/') }}">
-                            <h3>Handome Men</h3>
+                            <h3>Handsome Men</h3>
                         </a>
                     </div>
                 </div>
