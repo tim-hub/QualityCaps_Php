@@ -14,8 +14,39 @@
     </div>
     @if($caps->count())
     <div class="row">
+
+            {{-- {!! Form::select('category',
+            ['-1'=>'Select Gender',
+            '0'=>'Men','1'=>'Female', '2'=>'Kids'],
+            null,
+            ['class'=>'form-control','onChange'=>'form.submit()'])
+            !!} --}}
+
+        <form action="{{route('caps.index')}}" method="get">
+                <select class="form-control">
+                    <option value="-1"
+                    name="category"
+                    selected="selected">
+                    Select Category
+                    </option>
+                    <option value="0">
+                        Men
+                    <option>
+                    <option value="1">
+                        Women
+                    <option>
+                    <option value="2">
+                        Kids
+                    <option>
+                </select>
+                <input type=submit value="Filer By Category"></input>
+
+            </form>
+
+
+
             {{-- {!! Form::open(['method'=>'get']) !!}
-            {!! Form::select('gender',['-1'=>'Select Gender','0'=>'Male','1'=>'Female', '2'=>'Kids'],null,['class'=>'form-control','onChange'=>'form.submit()']) !!}
+
             <div class="col-sm-5 form-group">
                 <div class="input-group">
                     <input class="form-control" id="search"
@@ -68,7 +99,7 @@
                                 <h3>{{$cap->name}} </h3>
                             </a>
                             <h4>
-                            ${{$cap->price}}
+                                ${{$cap->price}}
                             </h4>
                             <p>
                                 {{str_limit( $cap->description,$limit = 120, $end = '...' ) }}
