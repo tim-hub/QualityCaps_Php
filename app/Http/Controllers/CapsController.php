@@ -49,7 +49,6 @@ class CapsController extends Controller
         $category = $request->get('category') != '' ? $request->get('category') : -1;
 
 
-
         $field = $request->get('field') != '' ? $request->get('field') : 'name';
         $sort = $request->get('sort') != '' ? $request->get('sort') : 'asc';
 
