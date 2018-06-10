@@ -59,7 +59,8 @@ class CapsController extends Controller
 
         $results = $results -> orderBy($field, $sort)
             ->paginate(16)
-            ->withPath('&category='.$category.'&field='.$field.'&sort='.$sort);
+            // remember request start with ? combine with &
+            ->withPath('?category='.$category.'&field='.$field.'&sort='.$sort);
 
         $caps = $results;
 		return view('caps.index', compact('caps'));
