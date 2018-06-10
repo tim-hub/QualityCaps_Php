@@ -47,8 +47,13 @@ class CapsController extends Controller
         //
 
         $category = $request->get('category') != '' ? $request->get('category') : -1;
+
+
+
         $field = $request->get('field') != '' ? $request->get('field') : 'name';
         $sort = $request->get('sort') != '' ? $request->get('sort') : 'asc';
+
+        $price = $request->get('price') != '' ? $request->get('price') : -1;
 
         $results = new Cap();
 
@@ -56,11 +61,14 @@ class CapsController extends Controller
             $results = $results->where('category_id', $category);
         }
 
+        if ($price != -1){
+            $results = $results->where('price', $price);
+        }
 
         $results = $results -> orderBy($field, $sort)
             ->paginate(16)
             // remember request start with ? combine with &
-            ->withPath('?category='.$category.'&field='.$field.'&sort='.$sort);
+            ->withPath('?category='.$category.'&field='.$field.'&sort='.$sort.'&price='.$price);
 
         $caps = $results;
 		return view('caps.index', compact('caps'));
