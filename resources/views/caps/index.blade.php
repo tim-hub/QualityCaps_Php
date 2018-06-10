@@ -22,26 +22,7 @@
             ['class'=>'form-control','onChange'=>'form.submit()'])
             !!} --}}
 
-        <form action="{{route('caps.index')}}" method="get">
-                <select class="form-control">
-                    <option value="-1"
-                    name="category"
-                    selected="selected">
-                    Select Category
-                    </option>
-                    <option value="0">
-                        Men
-                    <option>
-                    <option value="1">
-                        Women
-                    <option>
-                    <option value="2">
-                        Kids
-                    <option>
-                </select>
-                <input type=submit value="Filer By Category"></input>
 
-            </form>
 
 
 
