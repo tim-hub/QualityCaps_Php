@@ -21,10 +21,13 @@
 
             <div class="panel-body">
                 @if($cap->id)
-                    <form action="{{ route('caps.update', $cap->id) }}" method="POST" accept-charset="UTF-8">
+                    <form action="{{ route('caps.update', $cap->id) }}"
+                        enctype="multipart/form-data"
+                        method="POST" accept-charset="UTF-8">
                         <input type="hidden" name="_method" value="PUT">
                 @else
-                    <form action="{{ route('caps.store') }}" method="POST" accept-charset="UTF-8">
+                    <form action="{{ route('caps.store') }}" method="POST"
+                    enctype="multipart/form-data" accept-charset="UTF-8">
                 @endif
 
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -52,7 +55,7 @@
                 </div>
                 <div class="form-group">
                 	<label for="image-field">Image</label>
-                	<input class="form-control" type="text" name="image" id="image-field" value="{{ old('image', $cap->image ) }}" />
+                	<input class="form-control" type="file" name="image" id="image-field" value="{{ old('image', $cap->image ) }}" />
                 </div>
 
                     <div class="well well-sm">
