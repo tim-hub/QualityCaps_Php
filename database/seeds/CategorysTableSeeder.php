@@ -22,7 +22,7 @@ class CategorysTableSeeder extends Seeder
             'description' => 'cute',
         ]);
 
-        $categorys = factory(Category::class)->times(15)->make()->each(function ($category, $index) {
+        $categorys = factory(Category::class)->times(5)->make()->each(function ($category, $index) {
             if ($index == 0) {
                 // $category->field = 'value';
             }

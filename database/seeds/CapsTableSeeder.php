@@ -7,7 +7,7 @@ class CapsTableSeeder extends Seeder
 {
     public function run()
     {
-        $caps = factory(Cap::class)->times(50)->make()->each(function ($cap, $index) {
+        $caps = factory(Cap::class)->times(20)->make()->each(function ($cap, $index) {
             if ($index == 0) {
                 // $cap->field = 'value';
             }

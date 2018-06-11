@@ -43,7 +43,7 @@ class UsersTableSeeder extends Seeder
         ]);
 
 
-        factory(App\User::class, 1)->create()->each(function ($u) {
+        factory(App\User::class, 2)->create()->each(function ($u) {
 
         });
     }
