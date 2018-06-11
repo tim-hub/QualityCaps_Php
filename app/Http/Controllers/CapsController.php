@@ -16,7 +16,6 @@ class CapsController extends Controller
 
     public function search(Request $request){
 
-
         //https://laracasts.com/discuss/channels/laravel/simple-search-in-laravel?page=1
 
         $caps = Cap::all();
@@ -86,9 +85,47 @@ class CapsController extends Controller
 
 	public function store(CapRequest $request)
 	{
-		$cap = Cap::create($request->all());
+        $cap = Cap::create($request->all());
+
+        $dir = 'images/caps/';
+        $extension = strtolower($request->file('image')->getClientOriginalExtension()); // get image extension
+        $fileName = 'cap_'.date('m-d-Y_hia').str_random() . '.' . $extension; // rename image
+        $request->file('image')->move(public_path($dir), $fileName);
+        $cap->image = $fileName;
+
+        $cap->save();
+
 		return redirect()->route('caps.show', $cap->id)->with('message', 'Created successfully.');
-	}
+    }
+
+
+    public function store1(CapRequest $request){
+        $this->validate($request, [
+            'name' => 'required',
+            'price' => 'required',
+            'description' => 'required',
+            'category_id' => 'required',
+            'supplier_id' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+
+        $input['image'] = time().'.'.$request->image->getClientOriginalExtension();
+
+        $request->image->move(public_path('images'), $input['image']);
+
+
+        $input['name'] = $request->name;
+        $input['price'] = $request->price;
+        $input['description'] = $request->description;
+        $input['category_id'] = $request->category_id;
+        $input['supplier_id'] = $request->supplier_id;
+
+        Cap::create($input);
+
+        return redirect()->route('caps.index')->with('message', 'Created successfully.');
+
+    }
 
 	public function edit(Cap $cap)
 	{
