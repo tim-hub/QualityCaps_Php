@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
 
 class ProfileController extends Controller
 {
@@ -24,7 +26,7 @@ class ProfileController extends Controller
      * @param  null
      * @return Response
      */
-    public function show()
+    public function show_me()
     {
         // return view('userProfile', ['user' => User::findOrFail($id)]);
 
