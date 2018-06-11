@@ -14,3 +14,4 @@ yarn-error.log
 .buildpath
 .project
 .settings/org.eclipse.wst.validation.prefs
+public/images/caps/*
