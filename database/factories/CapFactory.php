@@ -14,8 +14,8 @@ $factory->define(App\Models\Cap::class, function (Faker $faker) {
         'image' => 'https://picsum.photos/400/300?image='.$img_id,
         // 'category_id' => factory('App\Models\Category')->create()->id,
         // 'supplier_id' => factory('App\Models\Supplier')->create()->id,
-        'category_id' => $faker ->numberBetween($min = 0, $max = 2),
-        'supplier_id' => $faker ->numberBetween($min = 0, $max = 2),
+        'category_id' => $faker ->numberBetween($min = 1, $max = 3),
+        'supplier_id' => $faker ->numberBetween($min = 1, $max = 3),
 
 
     ];
