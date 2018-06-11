@@ -12,7 +12,11 @@ $factory->define(App\Models\Cap::class, function (Faker $faker) {
         'description' => $faker ->text,
         'price' => $faker->randomNumber(2),
         'image' => 'https://picsum.photos/400/300?image='.$img_id,
-        'category_id' => factory('App\Models\Category')->create()->id,
-        'supplier_id' => factory('App\Models\Supplier')->create()->id,
+        // 'category_id' => factory('App\Models\Category')->create()->id,
+        // 'supplier_id' => factory('App\Models\Supplier')->create()->id,
+        'category_id' => $faker ->numberBetween($min = 0, $max = 2),
+        'supplier_id' => $faker ->numberBetween($min = 0, $max = 2),
+
+
     ];
 });
