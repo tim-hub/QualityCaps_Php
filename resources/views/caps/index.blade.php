@@ -51,8 +51,15 @@
                     <img
                     class="img-fluid img-thumbnail"
                     style="width: auto; height: 150px;"
+
+                    @if (substr($cap->image, 0,5)==='https' )
+
                     src="{{$cap->image}}"
-                    alt="{{$cap->name}}" >
+                    @else
+                    src="{{ asset('images/caps/'.$cap->image)}}"
+                    @endif
+                     >
+
                     <div class="caption">
                         <a href="{{route('caps.show', $cap->id)}}">
                             <h3>{{$cap->name}} </h3>

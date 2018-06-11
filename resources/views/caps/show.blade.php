@@ -29,7 +29,14 @@
                     <div class="col-md-5 col-lg-5">
                         <img
                         class="rounded float-left img-fluid"
-                        src="{{$cap->image}}" />
+                        @if (substr($cap->image, 0,5)==='https' )
+
+                        src="{{$cap->image}}"
+                        @else
+                        src="{{ asset('images/caps/'.$cap->image)}}"
+                        @endif
+
+                        />
                     </div>
                     <div class="col-md-7 col-lg-7">
                         <ul class="list-inline">
