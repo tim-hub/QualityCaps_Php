@@ -22,7 +22,7 @@ class SuppliersTableSeeder extends Seeder
             'description' => 'facebook caps',
         ]);
 
-        $suppliers = factory(Supplier::class)->times(5)->make()->each(function ($supplier, $index) {
+        $suppliers = factory(Supplier::class)->times(1)->make()->each(function ($supplier, $index) {
             if ($index == 0) {
                 // $supplier->field = 'value';
             }
