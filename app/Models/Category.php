@@ -15,6 +15,6 @@ class Category extends Model
     ];
 
     public function caps() {
-        return $this->hasMany('Cap');
+        return $this->hasMany('App\Models\Cap');
     }
 }

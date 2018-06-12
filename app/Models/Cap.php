@@ -13,7 +13,7 @@ class Cap extends Model
      *
      */
     protected $fillable = [
-        'name', 'description', 'price', 'image', 'category_id', 'supplier_id'
+        'name', 'description', 'price', 'image', 'category_id', 'supplier_id',
     ];
 
     public function category(){
@@ -24,5 +24,7 @@ class Cap extends Model
         return $this->belongsTo('App\Models\Supplier');
     }
 
-
+    // public function order__items(){
+    //     return $this->hasMany('App\Models\Order_Item');
+    // }
 }
