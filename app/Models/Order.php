@@ -13,7 +13,7 @@ class Order extends Model
      * @var array
      */
     protected $fillable = [
-        'cap_id', 'order_id', 'quantity', 'grand_total'
+        'user_id', 'status', 'quantity', 'receiver_name', 'address'
     ];
 
     public function user() {
@@ -21,5 +21,20 @@ class Order extends Model
     }
     public function order_items() {
         return $this->hasMany('Order_Item');
+    }
+
+    public function grand_total(){
+
+        $order_items = order_items();
+        $sum =0;
+
+        foreach($order_items as $item){
+            $sum += $item->sub_total;
+        }
+        return $sum;
+
+    }
+    public function grand_total_with_gst(){
+        return grand_total() * $this ->gst;
     }
 }

@@ -22,4 +22,7 @@ class Order_Item extends Model
     public function cap() {
         return $this->hasOne('Cap');
     }
+    public function sub_total(){
+        return $this->price * $this->quantity;
+    }
 }
