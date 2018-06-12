@@ -30,13 +30,20 @@
                                 Caps
                             </a>
                         </li>
-                        {{-- <li class="list-group-item">
+                        <li class="list-group-item">
                                 <a class=""
                                 href="{{route('orders.index')}}"
                                 >
                                     Orders
                                 </a>
-                            </li> --}}
+                            </li>
+                        <li class="list-group-item">
+                                <a class=""
+                                href="{{route('users.index')}}"
+                                >
+                                    Users
+                                </a>
+                            </li>
 
                 </div>
             </div>
