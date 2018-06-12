@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cap;
+use App\Models\Category;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CapRequest;
@@ -32,6 +34,7 @@ class CapsController extends Controller
             ->orWhere(
                     'description', 'like', '%'.$q.'%'
             )
+
             -> get();
         }
 
@@ -80,13 +83,23 @@ class CapsController extends Controller
 	public function create(Cap $cap)
 	{
         $this->authorize('update', $cap);
-		return view('caps.create_and_edit', compact('cap'));
+
+        $categories = Category::all();
+        $suppliers = Supplier::all();
+
+        return view('caps.create_and_edit',
+        [
+            'cap' => $cap,
+            'categories' => $categories,
+            'suppliers' => $suppliers,
+        ]);
 	}
 
 	public function store(CapRequest $request)
 	{
         $cap = Cap::create($request->all());
 
+        // save image
         $dir = 'images/caps/';
         $extension = strtolower($request->file('image')->getClientOriginalExtension()); // get image extension
         $fileName = 'cap_'.date('m-d-Y_hia').str_random() . '.' . $extension; // rename image
@@ -131,7 +144,16 @@ class CapsController extends Controller
 	public function edit(Cap $cap)
 	{
         $this->authorize('update', $cap);
-		return view('caps.create_and_edit', compact('cap'));
+
+        $categories = Category::all();
+        $suppliers = Supplier::all();
+
+        return view('caps.create_and_edit',
+        [
+            'cap' => $cap,
+            'categories' => $categories,
+            'suppliers' => $suppliers,
+        ]);
 	}
 
 	public function update(CapRequest $request, Cap $cap)
