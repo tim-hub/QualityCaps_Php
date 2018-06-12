@@ -19,9 +19,9 @@ class CreateCapsTable extends Migration
             $table->integer('category_id');
             $table->integer('supplier_id');
             $table->string('name',100);
-            $table->text('description');
+            $table->text('description') ->nullable();
             $table->decimal('price', 8, 2);
-            $table->string('image');
+            $table->string('image')->nullable();
         });
     }
 
