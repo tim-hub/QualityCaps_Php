@@ -23,17 +23,17 @@ class Order extends Model
         return $this->hasMany('App\Models\Order_Item');
     }
 
-    public function grand_total(){
+    public function getGrandTotalAttribute(){
 
-        $order_items = $this->order_items();
+        $order_items = $this->order_items;
         $sum =0;
 
         foreach($order_items as $item){
-            $sum += $item->sub_total();
+            $sum += $item->subtotal;
         }
         return $sum;
     }
-    public function grand_total_with_gst(){
-        return $this->grand_total() * (1+$this ->gst);
+    public function getGrandTotalGSTAttribute(){
+        return $this->grand_total * (1+$this ->gst);
     }
 }
