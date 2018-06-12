@@ -23,7 +23,22 @@
                     </div>
                 </div>
 
-                
+                <label>User_id</label>
+<p>
+	{{ $order->user_id }}
+</p> <label> Status</label>
+<p>
+	{{ $order-> status }}
+</p> <label>Receiver_name</label>
+<p>
+	{{ $order->receiver_name }}
+</p> <label>Gst</label>
+<p>
+	{{ $order->gst }}
+</p> <label>Address</label>
+<p>
+	{{ $order->address }}
+</p>
             </div>
         </div>
     </div>

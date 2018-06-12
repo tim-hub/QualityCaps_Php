@@ -23,7 +23,16 @@
                     </div>
                 </div>
 
-                
+                <label>Cap_id</label>
+<p>
+	{{ $order__item->cap_id }}
+</p> <label>Order_id</label>
+<p>
+	{{ $order__item->order_id }}
+</p> <label>Quantity</label>
+<p>
+	{{ $order__item->quantity }}
+</p>
             </div>
         </div>
     </div>

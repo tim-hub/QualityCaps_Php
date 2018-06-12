@@ -24,6 +24,9 @@
 
                         <tbody>
                             @foreach($categories as $category)
+                            {{-- @foreach($category->caps as $cap)
+                                {{$cap->name}}
+                            @endforeach --}}
                                 <tr>
                                     <td class="text-center"><strong>{{$category->id}}</strong></td>
 

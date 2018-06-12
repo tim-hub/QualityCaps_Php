@@ -17,7 +17,10 @@
                         <thead>
                             <tr>
                                 <th class="text-center">#</th>
-                                
+                                <th>User</th> <th> Status</th>
+                                <th> Total (GST) </th>
+                                <th>Receiver_name</th> <th>Gst</th>
+                                 <th>Address</th>
                                 <th class="text-right">OPTIONS</th>
                             </tr>
                         </thead>
@@ -27,7 +30,23 @@
                                 <tr>
                                     <td class="text-center"><strong>{{$order->id}}</strong></td>
 
-                                    
+                                    <td>{{$order->user->name}}</td>
+                                    <td>
+
+                                        @if ($order-> status == 2)
+                                            Waiting
+                                        @elseif($order-> status == 1)
+                                            Shipping
+                                        @else
+                                            Done
+                                        @endif
+
+                                    </td>
+                                    <td>
+                                        {{$order -> grand_total_with_gst()}}
+                                    </td>
+                                    <td>{{$order->receiver_name}}</td>
+                                    <td>{{$order->gst}}</td> <td>{{$order->address}}</td>
 
 
 

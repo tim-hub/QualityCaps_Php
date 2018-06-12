@@ -30,6 +30,26 @@
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                     
+                <div class="form-group">
+                    <label for="user_id-field">User_id</label>
+                    <input class="form-control" type="text" name="user_id" id="user_id-field" value="{{ old('user_id', $order->user_id ) }}" />
+                </div> 
+                <div class="form-group">
+                    <label for=" status-field"> Status</label>
+                    <input class="form-control" type="text" name=" status" id=" status-field" value="{{ old(' status', $order-> status ) }}" />
+                </div> 
+                <div class="form-group">
+                	<label for="receiver_name-field">Receiver_name</label>
+                	<input class="form-control" type="text" name="receiver_name" id="receiver_name-field" value="{{ old('receiver_name', $order->receiver_name ) }}" />
+                </div> 
+                <div class="form-group">
+                    <label for="gst-field">Gst</label>
+                    <input class="form-control" type="text" name="gst" id="gst-field" value="{{ old('gst', $order->gst ) }}" />
+                </div> 
+                <div class="form-group">
+                	<label for="address-field">Address</label>
+                	<input class="form-control" type="text" name="address" id="address-field" value="{{ old('address', $order->address ) }}" />
+                </div>
 
                     <div class="well well-sm">
                         <button type="submit" class="btn btn-primary">Save</button>

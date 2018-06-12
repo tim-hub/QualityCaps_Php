@@ -17,7 +17,11 @@
                         <thead>
                             <tr>
                                 <th class="text-center">#</th>
-                                
+                                <th>Cap</th>
+                                <th>Order_id</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>SubTotal</th>
                                 <th class="text-right">OPTIONS</th>
                             </tr>
                         </thead>
@@ -25,9 +29,18 @@
                         <tbody>
                             @foreach($order__items as $order__item)
                                 <tr>
-                                    <td class="text-center"><strong>{{$order__item->id}}</strong></td>
+                                    <td class="text-center"><
+                                        strong>{{$order__item->id}}</strong></td>
 
-                                    
+                                    <td>{{$order__item->cap->name}}</td>
+                                    <td>{{$order__item->order_id}}</td>
+                                    <td>
+                                        {{$order__item ->cap->price}}
+                                    </td>
+                                    <td>{{$order__item->quantity}}</td>
+                                    <td>
+                                        {{$order__item ->cap->price * $order__item->quantity}}
+                                    </td>
 
 
 
