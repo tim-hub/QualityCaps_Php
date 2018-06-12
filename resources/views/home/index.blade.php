@@ -48,7 +48,7 @@
                     src="{{ asset('images/w1.jpg') }}"
                     alt="women" >
                     <div class="caption text-center">
-                        <a href="{{ route('caps.index') }}">
+                        <a href="{{ route('caps.index').'?category=2' }}">
                             <h3>Women Beauties</h3>
                         </a>
                     </div>
@@ -61,7 +61,7 @@
                     src="{{ asset('images/m1.jpg') }}"
                     alt="women" >
                     <div class="caption text-center">
-                    <a href="{{ route('caps.index') }}">
+                    <a href="{{ route('caps.index').'?category=1' }}">
                             <h3>Handsome Men</h3>
                         </a>
                     </div>
@@ -74,7 +74,7 @@
                     src="{{ asset('images/k_caps.jpg') }}"
                     alt="women" >
                     <div class="caption text-center">
-                        <a href="{{ route('caps.index') }}">
+                        <a href="{{ route('caps.index').'?category=3' }}">
                             <h3>Cute Kids</h3>
                         </a>
                     </div>
