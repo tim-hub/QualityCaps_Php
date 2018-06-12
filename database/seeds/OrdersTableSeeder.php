@@ -7,7 +7,7 @@ class OrdersTableSeeder extends Seeder
 {
     public function run()
     {
-        $orders = factory(Order::class)->times(50)->make()->each(function ($order, $index) {
+        $orders = factory(Order::class)->times(5)->make()->each(function ($order, $index) {
             if ($index == 0) {
                 // $order->field = 'value';
             }
