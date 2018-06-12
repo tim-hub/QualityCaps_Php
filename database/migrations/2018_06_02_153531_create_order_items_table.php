@@ -19,7 +19,7 @@ class CreateOrderItemsTable extends Migration
             $table->integer('cap_id');
             $table->integer('order_id');
             $table->integer('quantity');
-            $table->decimal('subtotal', 10, 2);
+            // $table->decimal('subtotal', 10, 2);
         });
     }
 
