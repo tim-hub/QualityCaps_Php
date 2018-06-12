@@ -40,10 +40,9 @@
                                         @else
                                             Done
                                         @endif
-
                                     </td>
                                     <td>
-                                        {{$order -> grand_total_with_gst()}}
+                                        {{$order -> grandtotalgst}}
                                     </td>
                                     <td>{{$order->receiver_name}}</td>
                                     <td>{{$order->gst}}</td> <td>{{$order->address}}</td>
