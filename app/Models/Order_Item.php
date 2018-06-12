@@ -16,9 +16,6 @@ class Order_Item extends Model
         'cap_id', 'order_id', 'quantity'
     ];
 
-    public function sub_total(){
-        return $this->price * $this->quantity;
-    }
 
     public function order() {
         return $this->belongsTo('App\Models\Order');
@@ -26,5 +23,11 @@ class Order_Item extends Model
     public function cap() {
         return $this->belongsTo('App\Models\Cap');
     }
+
+    public function getSubTotalAttribute(){
+        return $this->cap->price * $this->quantity;
+        // return 10;
+    }
+
 
 }

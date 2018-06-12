@@ -39,7 +39,7 @@
                                     </td>
                                     <td>{{$order__item->quantity}}</td>
                                     <td>
-                                        {{$order__item ->cap->price * $order__item->quantity}}
+                                        {{$order__item ->subtotal}}
                                     </td>
 
 
