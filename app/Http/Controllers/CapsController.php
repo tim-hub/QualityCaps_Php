@@ -72,7 +72,23 @@ class CapsController extends Controller
             ->withPath('?category='.$category.'&field='.$field.'&sort='.$sort.'&price='.$price);
 
         $caps = $results;
-		return view('caps.index', compact('caps'));
+
+        $categories = Category::all();
+
+
+        // return view('caps.create_and_edit',
+        // [
+        //     'cap' => $cap,
+        //     'categories' => $categories,
+        //     'suppliers' => $suppliers,
+        // ]);
+
+        return view('caps.index',
+            [
+                'caps' => $caps,
+                'categories' => $categories,
+
+            ]);
 	}
 
     public function show(Cap $cap)

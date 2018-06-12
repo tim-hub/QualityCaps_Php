@@ -14,7 +14,7 @@
     </div>
     @if($caps->count())
     <div class="row">
-        <span class="col-6 col-md-4">
+        <span class="col-6 col-md-4 col-lg-3">
                 Name <a href="{{route('caps.index')}}?field=name">
                         Ascending
                     </a>
@@ -24,7 +24,7 @@
                     </a>
 
         </span>
-        <span class="col-6 col-md-4">
+        <span class="col-6 col-md-4 col-lg-3">
                 Price <a href="{{route('caps.index')}}?field=price">
                         Ascending
                     </a>
@@ -33,12 +33,28 @@
                     </a>
 
         </span>
-        <span class="col-6 col-md-4">
+        <span class="col-6 col-md-4 col-lg-3">
                 <form method='GET'  action="{{route('caps.index')}}">
                     <input type="text" name="price" value="" />
                     <input type="submit" class="btn" value="$">
                 </form>
 
+        </span>
+        <span>
+            <form method="GET" action="{{route('caps.index')}}">
+            <select
+            onchange='if(this.value != -1) { this.form.submit(); }'
+            class="form-control" name="category" id="category_id-field">
+                <option value=-1>
+                    Category Filter
+                </option>
+                @foreach($categories as $category)
+                <option value="{{$category->id}}">
+                    {{$category -> name}}
+                </option>
+                @endforeach
+            </select>
+            </form>
         </span>
     </div>
     <hr>
