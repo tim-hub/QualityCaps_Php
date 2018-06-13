@@ -51,6 +51,8 @@ Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'update
 Route::resource('orders', 'OrdersController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
 Route::resource('order__items', 'Order_ItemsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
 
-//Route::post('/cart','CartController@add')->name('cart.add');
-//Route::delete('/cart/{id}','CartController@delete')->name('cart.delete');
-//Route::resource('cart', 'CartController');
+//Route::post('/carts','CartsController@add')->name('carts.add');
+//Route::delete('/carts/{id}','CartsController@delete')->name('carts.delete');
+//Route::resource('carts', 'CartsController');
+
+Route::resource('carts', 'CartsController', ['only' => ['index', 'store', 'update', 'destroy']]);

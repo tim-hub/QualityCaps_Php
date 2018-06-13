@@ -12,6 +12,9 @@
 
         </h1>
     </div>
+
+
+
     @if($caps->count())
     <div class="row">
         <span class="col-6 col-md-4 col-lg-3">

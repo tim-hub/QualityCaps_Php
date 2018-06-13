@@ -61,9 +61,11 @@
                                 {{ $cap->price }}
                                 </span>
 
-                                <button class="btn btn-success">
-                                    Add To Cart
-                                </button>
+                                @include('carts.add')
+
+                                {{--<button class="btn btn-success">--}}
+                                    {{--Add To Cart--}}
+                                {{--</button>--}}
                             </h2>
 
                     </div>
