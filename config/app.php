@@ -161,7 +161,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
 //        Darryldecode\Cart\CartServiceProvider::class,
-
+        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class
     ],
 
     /*
@@ -210,8 +210,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-//        'Cart' => Darryldecode\Cart\Facades\CartFacade::class, //cart
-
+//        'Cart' => Darryldecode\Cart\Facades\CartFacade::class, //carts
+        'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
     ],
 
 ];

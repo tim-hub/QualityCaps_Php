@@ -2,6 +2,7 @@
 
 namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 
 class Cap extends Model
