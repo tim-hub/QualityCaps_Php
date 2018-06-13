@@ -41,6 +41,14 @@
                         {{--<td class="table-image">--}}
                             {{--<a href="{{ url('caps', [$item->model->slug]) }}"><img src="{{ asset('img/' . $item->model->image) }}" alt="product" class="img-responsive cart-image"></a></td>--}}
                         {{--<td><a href="{{ url('caps', [$item->model->slug]) }}">{{ $item->name }}</a></td>--}}
+
+                        <td>
+                            {{$item->name}}
+                        </td>
+                        <td>
+                            {{$item->price}}
+                        </td>
+
                         <td>
                             <select class="quantity" data-id="{{ $item->rowId }}">
                                 <option {{ $item->qty == 1 ? 'selected' : '' }}>1</option>
