@@ -117,10 +117,21 @@ class CapsController extends Controller
 
         // save image
         $dir = 'images/caps/';
-        $extension = strtolower($request->file('image')->getClientOriginalExtension()); // get image extension
-        $fileName = 'cap_'.date('m-d-Y_hia').str_random() . '.' . $extension; // rename image
-        $request->file('image')->move(public_path($dir), $fileName);
-        $cap->image = $fileName;
+
+        if ($request->file('image') !== null){
+
+            try{
+                $extension = strtolower($request->file('image')->getClientOriginalExtension()); // get image extension
+                $fileName = 'cap_'.date('m-d-Y_hia').str_random() . '.' . $extension; // rename image
+                $request->file('image')->move(public_path($dir), $fileName);
+                $cap->image = $fileName;
+            }catch (\Exception $e){
+                echo 'errors during uploading image'.$e;
+            }
+
+        }else{
+            $cap->image = 'default.jpg';
+        }
 
         $cap->save();
 
