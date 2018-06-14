@@ -26,10 +26,10 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th class="table-image"></th>
-                    <th>Product</th>
-                    <th>Quantity</th>
+                    <th>Name</th>
                     <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
                     <th class="column-spacer"></th>
                     <th></th>
                 </tr>
@@ -38,25 +38,60 @@
                 <tbody>
                 @foreach (Cart::content() as $item)
                     <tr>
-                        {{--<td class="table-image">--}}
-                            {{--<a href="{{ url('caps', [$item->model->slug]) }}"><img src="{{ asset('img/' . $item->model->image) }}" alt="product" class="img-responsive cart-image"></a></td>--}}
-                        {{--<td><a href="{{ url('caps', [$item->model->slug]) }}">{{ $item->name }}</a></td>--}}
-
                         <td>
-                            {{$item->name}}
+                            <a href="{{route('caps.show', $item->id)}}">
+                                {{$item->name}}
+                            </a>
+
                         </td>
                         <td>
                             {{$item->price}}
                         </td>
 
                         <td>
-                            <select class="quantity" data-id="{{ $item->rowId }}">
-                                <option {{ $item->qty == 1 ? 'selected' : '' }}>1</option>
-                                <option {{ $item->qty == 2 ? 'selected' : '' }}>2</option>
-                                <option {{ $item->qty == 3 ? 'selected' : '' }}>3</option>
-                                <option {{ $item->qty == 4 ? 'selected' : '' }}>4</option>
-                                <option {{ $item->qty == 5 ? 'selected' : '' }}>5</option>
-                            </select>
+
+                            <ul class=" list-inline">
+                                <li class="list-inline-item">
+                                    <form action="{{url('carts-update')}}" method="POST" class="side-by-side">
+                                        {!! csrf_field() !!}
+                                        <input type="hidden" name="rowId" value="{{$item->rowId}}">
+                                        <input type="hidden" name="increment" value="-1">
+                                        <input type="submit" class="btn btn-primary btn-sm" value="-">
+                                    </form>
+
+                                </li>
+
+                                <li class="list-inline-item">
+                                    {{$item->qty}}
+
+                                </li>
+
+                                <li class="list-inline-item">
+                                    <form action="{{url('carts-update')}}" method="POST" class="side-by-side">
+                                        {!! csrf_field() !!}
+                                        <input type="hidden" name="rowId" value="{{$item->rowId}}">
+                                        <input type="hidden" name="increment" value="1">
+                                        <input type="submit" class="btn btn-primary btn-sm" value="+">
+                                    </form>
+
+                                </li>
+
+
+
+
+
+
+
+                            </ul>
+
+
+                            {{--<select class="quantity" data-id="{{ $item->rowId }}">--}}
+                                {{--<option {{ $item->qty == 1 ? 'selected' : '' }}>1</option>--}}
+                                {{--<option {{ $item->qty == 2 ? 'selected' : '' }}>2</option>--}}
+                                {{--<option {{ $item->qty == 3 ? 'selected' : '' }}>3</option>--}}
+                                {{--<option {{ $item->qty == 4 ? 'selected' : '' }}>4</option>--}}
+                                {{--<option {{ $item->qty == 5 ? 'selected' : '' }}>5</option>--}}
+                            {{--</select>--}}
                         </td>
                         <td>${{ $item->subtotal }}</td>
                         <td class=""></td>
@@ -131,27 +166,27 @@
 
 @endsection
 
-@section('extra-js')
-    <script>
-        (function(){
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $('.quantity').on('change', function() {
-                var id = $(this).attr('data-id')
-                $.ajax({
-                    type: "PATCH",
-                    url: '{{ url("/cart") }}' + '/' + id,
-                    data: {
-                        'quantity': this.value,
-                    },
-                    success: function(data) {
-                        window.location.href = '{{ url('/cart') }}';
-                    }
-                });
-            });
-        })();
-    </script>
-@endsection
+{{--@section('extra-js')--}}
+    {{--<script>--}}
+        {{--(function(){--}}
+            {{--$.ajaxSetup({--}}
+                {{--headers: {--}}
+                    {{--'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
+                {{--}--}}
+            {{--});--}}
+            {{--$('.quantity').on('change', function() {--}}
+                {{--var id = $(this).attr('data-id')--}}
+                {{--$.ajax({--}}
+                    {{--type: "PATCH",--}}
+                    {{--url: '{{ url("/cart") }}' + '/' + id,--}}
+                    {{--data: {--}}
+                        {{--'quantity': this.value,--}}
+                    {{--},--}}
+                    {{--success: function(data) {--}}
+                        {{--window.location.href = '{{ url('/cart') }}';--}}
+                    {{--}--}}
+                {{--});--}}
+            {{--});--}}
+        {{--})();--}}
+    {{--</script>--}}
+{{--@endsection--}}

@@ -47,7 +47,7 @@ class CartsController extends Controller
         //
 //        Cart::associate('Cap','App')->add($request->id, $request->name, 1, $request->price);
 
-        Cart::add($id, $name, $price, $count)->associate('App\Models\Cap');
+        Cart::add($id, $name,  $count, $price)->associate('App\Models\Cap');
         return redirect()->route('carts.index')->withSuccessMessage('Item was added to your carts!');
     }
 
@@ -77,12 +77,27 @@ class CartsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
+
+        $rowId = $request->get('rowId');
+        $increment = $request->get('increment');
+        if ($rowId !== null){
+
+            $cart = Cart::get($rowId);
+            $qty= $increment + $cart->qty;
+
+            Cart::update ($rowId, $qty);
+
+        }
+
+
+        return redirect()->route('carts.index')->withSuccessMessage('Item has been removed!');
+
     }
 
     /**
