@@ -59,7 +59,7 @@ Route::resource('order__items', 'Order_ItemsController', ['only' => ['index', 's
 //Route::post('carts/remove', 'CartsController@remove') -> name('carts.remove');
 
 
-Route::resource('carts', 'CartsController', ['only' => ['index', 'store','destroy', 'empty']]);
+Route::resource('carts', 'CartsController', ['only' => ['index', 'store','destroy']]);
 
 //Route::get('carts-empty', 'CartsController@index');
 Route::post('carts-empty', 'CartsController@empty');

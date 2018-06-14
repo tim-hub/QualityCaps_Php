@@ -30,7 +30,6 @@ class CartsController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *
