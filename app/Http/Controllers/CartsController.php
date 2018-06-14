@@ -97,4 +97,17 @@ class CartsController extends Controller
         Cart::remove($id);
         return redirect()->route('carts.index')->withSuccessMessage('Item has been removed!');
     }
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function empty(){
+        Cart::destroy();
+        return redirect()->route('carts.index')->withSuccessMessage('Cart has been emptied!');
+    }
+
+
 }

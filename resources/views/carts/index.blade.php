@@ -61,7 +61,7 @@
                         <td>${{ $item->subtotal }}</td>
                         <td class=""></td>
                         <td>
-                            <form action="{{ url('cart', [$item->rowId]) }}" method="POST" class="side-by-side">
+                            <form action="{{route('carts.destroy',  $item->rowId)}}" method="POST" class="side-by-side">
                                 {!! csrf_field() !!}
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="submit" class="btn btn-danger btn-sm" value="Remove">
@@ -108,9 +108,9 @@
             <a href="#" class="btn btn-success btn-lg">Proceed to Checkout</a>
 
             <div style="float:right">
-                <form action="{{ url('/emptyCart') }}" method="POST">
+                <form action="{{ url('carts-empty') }}" method="POST">
                     {!! csrf_field() !!}
-                    <input type="hidden" name="_method" value="DELETE">
+                    {{--<input type="hidden" name="_method" value="DELETE">--}}
                     <input type="submit" class="btn btn-danger btn-lg" value="Empty Cart">
                 </form>
             </div>
@@ -118,7 +118,7 @@
         @else
 
             <h3>You have no items in your shopping cart</h3>
-            <a href="{{ url('/shop') }}" class="btn btn-primary btn-lg">Continue Shopping</a>
+            <a href="{{ route('caps.index') }}" class="btn btn-primary btn-lg">Continue Shopping</a>
 
         @endif
 

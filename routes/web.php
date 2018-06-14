@@ -55,4 +55,11 @@ Route::resource('order__items', 'Order_ItemsController', ['only' => ['index', 's
 //Route::delete('/carts/{id}','CartsController@delete')->name('carts.delete');
 //Route::resource('carts', 'CartsController');
 
-Route::resource('carts', 'CartsController', ['only' => ['index', 'store', 'update', 'destroy']]);
+
+//Route::post('carts/remove', 'CartsController@remove') -> name('carts.remove');
+
+
+Route::resource('carts', 'CartsController', ['only' => ['index', 'store', 'update','destroy', 'empty']]);
+
+//Route::get('carts-empty', 'CartsController@index');
+Route::post('carts-empty', 'CartsController@empty');
