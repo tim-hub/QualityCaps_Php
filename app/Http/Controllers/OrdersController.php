@@ -11,11 +11,13 @@ class OrdersController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->middleware('auth');
     }
 
 	public function index()
 	{
+        $this->authorize('view');
+
 		$orders = Order::paginate();
 		return view('orders.index', compact('orders'));
 	}
