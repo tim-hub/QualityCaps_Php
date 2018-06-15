@@ -7,7 +7,7 @@
             <div class="panel-heading">
                 <h1>
                     <i class="glyphicon glyphicon-align-justify"></i> Order
-                    <a class="btn btn-success pull-right" href="{{ route('orders.create') }}"><i class="glyphicon glyphicon-plus"></i> Create</a>
+                    {{--<a class="btn btn-success pull-right" href="{{ route('orders.create') }}"><i class="glyphicon glyphicon-plus"></i> Create</a>--}}
                 </h1>
             </div>
 
@@ -76,23 +76,23 @@
                                         </a>
                                         </li>
 
-                                        <li class="list-inline-item">
-                                        <a class="btn btn-xs btn-warning" href="{{ route('orders.edit', $order->id) }}">
-                                            Edit
-                                        </a>
-                                        </li>
+                                        {{--<li class="list-inline-item">--}}
+                                        {{--<a class="btn btn-xs btn-warning" href="{{ route('orders.edit', $order->id) }}">--}}
+                                            {{--Edit--}}
+                                        {{--</a>--}}
+                                        {{--</li>--}}
 
-                                        <li class="list-inline-item">
-                                        <form action="{{ route('orders.destroy', $order->id) }}" method="POST" style="display: inline;" onsubmit="return confirm('Delete? Are you sure?');">
-                                            {{csrf_field()}}
-                                            <input type="hidden" name="_method" value="DELETE">
+                                        {{--<li class="list-inline-item">--}}
+                                        {{--<form action="{{ route('orders.destroy', $order->id) }}" method="POST" style="display: inline;" onsubmit="return confirm('Delete? Are you sure?');">--}}
+                                            {{--{{csrf_field()}}--}}
+                                            {{--<input type="hidden" name="_method" value="DELETE">--}}
 
-                                            <button type="submit" class="btn btn-xs btn-danger">
-                                                Delete
+                                            {{--<button type="submit" class="btn btn-xs btn-danger">--}}
+                                                {{--Delete--}}
 
-                                             </button>
-                                        </form>
-                                        </li>
+                                             {{--</button>--}}
+                                        {{--</form>--}}
+                                        {{--</li>--}}
                                         </ul>
                                     </td>
 
