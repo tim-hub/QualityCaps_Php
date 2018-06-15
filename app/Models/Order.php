@@ -33,6 +33,11 @@ class Order extends Model
         }
         return $sum;
     }
+
+    public function getGSTAttribute(){
+        return $this->grand_total * ($this ->gst);
+    }
+
     public function getGrandTotalGSTAttribute(){
         return $this->grand_total * (1+$this ->gst);
     }
