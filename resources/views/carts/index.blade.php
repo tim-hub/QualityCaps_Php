@@ -77,11 +77,6 @@
                                 </li>
 
 
-
-
-
-
-
                             </ul>
 
 
@@ -121,8 +116,8 @@
                 <tr>
                     <td class="table-image"></td>
                     <td></td>
-                    <td class="small-caps table-bg" style="text-align: right">Tax</td>
-                    <td>${{ Cart::instance('default')->tax() }}</td>
+                    <td class="small-caps table-bg" style="text-align: right">GST 15%</td>
+                    <td>${{ Cart::instance('default')->subtotal() *0.15 }}</td>
                     <td></td>
                     <td></td>
                 </tr>
