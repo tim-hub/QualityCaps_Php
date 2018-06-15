@@ -112,7 +112,14 @@ class CapsController extends Controller
 	}
 
 	public function store(CapRequest $request)
+
 	{
+
+         $request->validate([
+            'name' => 'required|unique:posts|max:255',
+            'price' => 'required',
+        ]);
+
         $cap = Cap::create($request->all());
 
         // save image
