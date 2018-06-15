@@ -57,4 +57,25 @@ class OrdersController extends Controller
 
 		return redirect()->route('orders.index')->with('message', 'Deleted successfully.');
 	}
+
+    public function change_status(Request $request){
+
+
+        $id = $request->get('order_id');
+
+
+        $order = Order::findOrFail($id);
+
+        $this->authorize('update', $order);
+
+        $order -> status +=1;
+
+        if ($order-> status >2){
+            $order -> status =0;
+        }
+
+
+        $order -> save();
+        return redirect()->route('orders.index')->with('message', 'Status updated.');
+    }
 }

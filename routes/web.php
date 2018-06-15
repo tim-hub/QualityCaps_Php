@@ -48,7 +48,10 @@ Route::get('users/admin', 'UsersController@admin')->name('admin');
 Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'update', 'edit', 'destroy',]]);
 
 
+Route::post('orders-change-status', 'OrdersController@change_status');
 Route::resource('orders', 'OrdersController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
+
+
 Route::resource('order__items', 'Order_ItemsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
 
 //Route::post('/carts','CartsController@add')->name('carts.add');

@@ -17,10 +17,13 @@
                         <thead>
                             <tr>
                                 <th class="text-center">#</th>
-                                <th>User</th> <th> Status</th>
-                                <th> Total (GST) </th>
-                                <th>Receiver_name</th> <th>Gst</th>
+                                <th>User</th>
+
+                                <th> Total</th>
+                                <th>Gst</th>
+                                <th>Receiver_name</th>
                                  <th>Address</th>
+                                <th> Status</th>
                                 <th class="text-right">OPTIONS</th>
                             </tr>
                         </thead>
@@ -31,9 +34,18 @@
                                     <td class="text-center"><strong>{{$order->id}}</strong></td>
 
                                     <td>{{$order->user->name}}</td>
+
+
+                                    <td>
+                                        {{$order -> grandtotalgst}}
+                                    </td>
+                                    <td>{{$order->grandtotalgst - $order->grandtotal}}</td>
+                                    <td>{{$order->receiver_name}}</td>
+                                     <td>{{$order->address}}</td>
+
                                     <td>
 
-                                        @if ($order-> status == 2)
+                                        @if ($order-> status == 0)
                                             Waiting
                                         @elseif($order-> status == 1)
                                             Shipping
@@ -41,16 +53,22 @@
                                             Done
                                         @endif
                                     </td>
-                                    <td>
-                                        {{$order -> grandtotalgst}}
-                                    </td>
-                                    <td>{{$order->receiver_name}}</td>
-                                    <td>{{$order->gst}}</td> <td>{{$order->address}}</td>
-
-
 
                                     <td class="text-right">
                                         <ul class="d-inline-flex">
+
+                                            <li class="list-inline-item">
+                                                <form action="{{ url('orders-change-status') }}" method="POST" style="display: inline;" >
+                                                    {{csrf_field()}}
+                                                    {{--<input type="hidden" name="_method" value="DELETE">--}}
+                                                    {{--<input type="hidden" name="_method" value="PUT">--}}
+                                                    <input type="hidden" name="order_id" value="{{$order->id}}"/>
+                                                    <button type="submit" class="btn btn-xs btn-danger">
+                                                        Change
+
+                                                    </button>
+                                                </form>
+                                            </li>
 
                                         <li class="list-inline-item">
                                         <a class="btn btn-xs btn-primary" href="{{ route('orders.show', $order->id) }}">
