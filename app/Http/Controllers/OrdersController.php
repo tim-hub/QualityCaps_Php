@@ -68,16 +68,21 @@ class OrdersController extends Controller
 
         $order = Order::findOrFail($id);
 
-        $this->authorize('update', $order);
+        if ($order){
 
-        $order -> status +=1;
+            $this->authorize('update', $order);
 
-        if ($order-> status >2){
-            $order -> status =0;
+            $order -> status +=1;
+
+            if ($order-> status >2){
+                $order -> status =0;
+            }
+
+            $order -> save();
         }
 
 
-        $order -> save();
+
         return redirect()->route('orders.index')->with('message', 'Status updated.');
     }
 }
