@@ -135,7 +135,14 @@
             </table>
 
             <a href="{{ route('caps.index') }}" class="btn btn-primary btn-lg">Continue Shopping</a> &nbsp;
-            <a href="#" class="btn btn-success btn-lg">Proceed to Checkout</a>
+            {{--<a href="#" class="btn btn-success btn-lg">Proceed to Checkout</a>--}}
+            <button type="button" class="btn btn-success btn-lg"
+                    {{--data-toggle="modal" data-target="#process_order"--}}
+                    id="form_btn"
+                    onclick="toggle()"
+            >
+                Process to checkout
+            </button>
 
             <div style="float:right">
                 <form action="{{ url('carts-empty') }}" method="POST">
@@ -145,6 +152,45 @@
                 </form>
             </div>
 
+            <div id="order_form" style="display: none">
+
+                <form
+                    action="{{url('process-order')}}" method="POST">
+                    {{ csrf_field() }}
+
+                    <div   class="form-group">
+                        <label>Name</label>
+
+                        <input class="form-control"
+                               type="text"
+                               name="receiver_name"
+
+                        >
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Address</label>
+
+
+                        <input class="form-control"
+                               type="text"
+                               name ="address"
+
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <input
+                            type="submit"
+                            class="btn btn-primary"
+                            value="Process"
+                        >
+                    </div>
+
+                </form>
+
+            </div>
         @else
 
             <h3>You have no items in your shopping cart</h3>
@@ -156,10 +202,25 @@
 
     </div> <!-- end container -->
 
+    <script>
+
+        function toggle() {
+            var x = document.getElementById("order_form");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+    </script>
+
 
 
 
 @endsection
+
+
 
 {{--@section('extra-js')--}}
     {{--<script>--}}

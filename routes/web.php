@@ -49,6 +49,7 @@ Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'update
 
 
 Route::post('orders-change-status', 'OrdersController@change_status');
+Route::post('process-order', 'OrdersController@process_order');
 Route::resource('orders', 'OrdersController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
 
 
