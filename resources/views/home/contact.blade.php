@@ -10,15 +10,25 @@
 
             Room 2020 Level 2, Building 180, 139 Carrington Rd, Mount Albert, Auckland 1025<br />
 
-            <abbr title="Gtihub">Website:</abbr>
-            <a href="https://github.com/tim-hub">Github</a>
+            <ul class="list-group">
+                <li class="list-group-item">
 
-            <br/>
-            <abbr title="About">About:</abbr>
-            <a href="about">More</a>
+                    <abbr title="Gtihub">Website:</abbr>
+                    <a href="https://github.com/tim-hub">Github</a>
 
-            <abbr title="ASP.Net Core Version:"></abbr>
-            <a href="http://dochyper.unitec.ac.nz/baih11/asp_assignment">Dochyper</a>
+                </li>
+                <li class="list-group-item">
+                    <abbr title="About">About:</abbr>
+                    <a href="about">More</a>
+                </li>
+                <li class="list-group-item">
+                    <abbr title="ASP.Net Core Version:">ASP.Net Core Version:</abbr>
+                    <a href="http://dochyper.unitec.ac.nz/baih11/asp_assignment">Dochyper</a>
+
+                </li>
+
+            </ul>
+
         </address>
 
     </div>
