@@ -17,17 +17,22 @@
                         <thead>
                             <tr>
                                 <th class="text-center">#</th>
-                                <th>Name</th> <th>Address</th> <th>Email</th> <th>Role</th> <th>Email_confirmed</th> <th>Enabled</th>
+                                <th>Name</th> <th>Address</th> <th>Email</th> <th>Confirmed</th> <th>Enabled</th>
                                 <th class="text-right">OPTIONS</th>
                             </tr>
                         </thead>
 
                         <tbody>
                             @foreach($users as $user)
+
+
+                                @if($user -> role !==9)
+
                                 <tr>
                                     <td class="text-center"><strong>{{$user->id}}</strong></td>
 
-                                    <td>{{$user->name}}</td> <td>{{$user->address}}</td> <td>{{$user->email}}</td> <td>{{$user->role}}</td> <td>{{$user->email_confirmed}}</td> <td>{{$user->enabled}}</td>
+                                    <td>{{$user->name}}</td> <td>{{str_limit($user->address, $limit=40)}}</td> <td>{{$user->email}}</td>
+                                    <td>{{$user->email_confirmed}}</td> <td>{{$user->enabled}}</td>
 
 
 
@@ -45,22 +50,46 @@
                                             Edit
                                         </a>
                                         </li>
-
                                         <li class="list-inline-item">
-                                        <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display: inline;" onsubmit="return confirm('Delete? Are you sure?');">
-                                            {{csrf_field()}}
-                                            <input type="hidden" name="_method" value="DELETE">
 
-                                            <button type="submit" class="btn btn-xs btn-danger">
-                                                Delete
+                                            <form action="{{route('toggle')}}" method="POST">
 
-                                             </button>
-                                        </form>
+                                                {{csrf_field()}}
+
+                                                <input type="hidden" name="id" value="{{$user->id}}">
+                                                <input type="submit"
+                                                class="btn btn-success"
+
+                                             @if ($user -> enabled ==0)
+
+                                                value="Enable"
+                                               @else
+                                               value = "Disable"
+                                                @endif
+
+                                                >
+
+                                            </form>
+
                                         </li>
+
+                                        {{--<li class="list-inline-item">--}}
+                                        {{--<form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display: inline;" onsubmit="return confirm('Delete? Are you sure?');">--}}
+                                            {{--{{csrf_field()}}--}}
+                                            {{--<input type="hidden" name="_method" value="DELETE">--}}
+
+                                            {{--<button type="submit" class="btn btn-xs btn-danger">--}}
+                                                {{--Delete--}}
+
+                                             {{--</button>--}}
+                                        {{--</form>--}}
+                                        {{--</li>--}}
                                         </ul>
                                     </td>
 
                                 </tr>
+
+                                @endif
                             @endforeach
                         </tbody>
                     </table>

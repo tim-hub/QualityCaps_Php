@@ -9,10 +9,10 @@ use App\Http\Requests\UserRequest;
 
 class UsersController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+     public function __construct()
+     {
+         $this->middleware('auth');
+     }
 
 	public function index()
 	{
@@ -94,9 +94,46 @@ class UsersController extends Controller
             return view('users.adminIndex');
         }
         else{
-            return view('users.userProfile', compact('user'));
+            return response("Unautherized", 401);
         }
 
         // return view('users.adminIndex');
+    }
+
+    /**
+     * Show the profile for the given user.
+     *
+     * @param  Request
+     * @return Response
+     */
+    public function toggle(Request $request){
+
+
+        $id = $request->get('id');
+
+        $user = \Auth::user();
+
+        if ($user -> role >8){
+
+
+            $customer = User::findOrFail($id);
+            $status = $customer -> enabled ;
+
+            if ($status ===1){
+                $customer -> enabled =0;
+            }else{
+                $customer-> enabled =1;
+            }
+
+            $customer ->save();
+
+
+            return redirect() -> route('users.index');
+
+
+        }else{
+            return response("Unautherized", 401);
+        }
+
     }
 }

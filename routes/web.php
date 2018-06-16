@@ -44,6 +44,7 @@ Route::resource('caps', 'CapsController');
 
 Route::get('users/profile', 'UsersController@show_me')->name('profile');
 Route::get('users/admin', 'UsersController@admin')->name('admin');
+Route::post('users/toggle', 'UsersController@toggle') ->name('toggle');
 
 Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'update', 'edit', 'destroy',]]);
 
