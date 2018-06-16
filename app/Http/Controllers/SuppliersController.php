@@ -11,17 +11,19 @@ class SuppliersController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->middleware('auth');
     }
 
 	public function index()
 	{
+        $this->authorize('view');
 		$suppliers = Supplier::paginate();
 		return view('suppliers.index', compact('suppliers'));
 	}
 
     public function show(Supplier $supplier)
     {
+
         return view('suppliers.show', compact('supplier'));
     }
 
@@ -33,6 +35,7 @@ class SuppliersController extends Controller
 
 	public function store(SupplierRequest $request)
 	{
+        $this->authorize('view');
 		$supplier = Supplier::create($request->all());
 		return redirect()->route('suppliers.show', $supplier->id)->with('message', 'Created successfully.');
 	}

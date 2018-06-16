@@ -15,14 +15,32 @@ class UsersController extends Controller
      }
 
 	public function index()
+
+
 	{
-		$users = User::paginate();
-		return view('users.index', compact('users'));
+        $c_user = \Auth::user();
+
+        if ($c_user -> role >8){
+            $users = User::paginate();
+            return view('users.index', compact('users'));
+        }else{
+            return response("Unautherized", 401);
+        }
+
 	}
 
     public function show(User $user)
     {
-        return view('users.show', compact('user'));
+
+
+        $c_user = \Auth::user();
+
+        if ($c_user -> role >8 || $c_user->id === $user->id ){
+            return view('users.show', compact('user'));
+        }else{
+            return response("Unautherized", 401);
+        }
+
     }
 
 	public function create(User $user)
@@ -38,8 +56,15 @@ class UsersController extends Controller
 
 	public function edit(User $user)
 	{
-        $this->authorize('update', $user);
-		return view('users.create_and_edit', compact('user'));
+        $c_user = \Auth::user();
+
+        if ($c_user -> role >8 || $c_user->id === $user->id ){
+            return view('users.create_and_edit', compact('user'));
+        }else{
+            return response("Unautherized", 401);
+
+        }
+
 	}
 
 	public function update(UserRequest $request, User $user)
