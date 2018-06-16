@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    Your profile!
+
                 </div>
             </div>
         </div>
