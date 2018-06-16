@@ -39,7 +39,7 @@
                         <a class="btn btn-sm btn-primary" href="{{ route('users.index') }}"> Back</a>
 
 
-                        <a class="btn btn-sm btn-warning pull-right" href="{{ route('users.edit', $user->name) }}">
+                        <a class="btn btn-sm btn-warning pull-right" href="{{ route('users.edit', $user->id) }}">
                             Edit
                         </a>
                     </div>
