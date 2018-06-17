@@ -49,6 +49,22 @@ class OrdersController extends Controller
 	public function store(OrderRequest $request)
 	{
 		$order = Order::create($request->all());
+
+        foreach (Cart::content() as $cart){
+
+            $item = new Order_Item();
+
+            $item->cap_id = $cart ->id;
+            $item->quantity = $cart -> qty;
+            $item->order_id = $order -> id;
+
+            $item->save();
+        }
+
+
+        Cart::destroy();
+
+
 		return redirect()->route('orders.show', $order->id)->with('message', 'Created successfully.');
 	}
 

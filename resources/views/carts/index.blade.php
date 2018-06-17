@@ -126,7 +126,7 @@
                     <td class="table-image"></td>
                     <td style="padding: 40px;"></td>
                     <td class="small-caps table-bg" style="text-align: right">Your Total</td>
-                    <td class="table-bg">${{ Cart::total() }}</td>
+                    <td class="table-bg">${{ Cart::instance('default')->subtotal() *1.15 }}</td>
                     <td class="column-spacer"></td>
                     <td></td>
                 </tr>
@@ -136,13 +136,18 @@
 
             <a href="{{ route('caps.index') }}" class="btn btn-primary btn-lg">Continue Shopping</a> &nbsp;
             {{--<a href="#" class="btn btn-success btn-lg">Proceed to Checkout</a>--}}
-            <button type="button" class="btn btn-success btn-lg"
+            {{--<button type="button" class="btn btn-success btn-lg"--}}
                     {{--data-toggle="modal" data-target="#process_order"--}}
-                    id="form_btn"
-                    onclick="toggle()"
-            >
+                    {{--id="form_btn"--}}
+                    {{--onclick="toggle()"--}}
+            {{-->--}}
+                {{--Process to checkout--}}
+            {{--</button>--}}
+            <a
+                href="{{route('orders.create')}}"
+                class="btn btn-success btn-lg">
                 Process to checkout
-            </button>
+            </a>
 
             <div style="float:right">
                 <form action="{{ url('carts-empty') }}" method="POST">
