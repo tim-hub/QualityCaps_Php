@@ -16,7 +16,7 @@ class CategoriesController extends Controller
 
 	public function index()
 	{
-//        $this->authorize('view');
+
 		$categories = Category::paginate();
 		return view('categories.index', compact('categories'));
 	}
@@ -34,7 +34,7 @@ class CategoriesController extends Controller
 
 	public function store(CategoryRequest $request)
 	{
-        $this->authorize('view');
+
 		$category = Category::create($request->all());
 		return redirect()->route('categories.show', $category->id)->with('message', 'Created successfully.');
 	}

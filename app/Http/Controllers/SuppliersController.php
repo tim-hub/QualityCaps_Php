@@ -15,8 +15,7 @@ class SuppliersController extends Controller
     }
 
 	public function index()
-	{
-//        $this->authorize('view');
+    {
 		$suppliers = Supplier::paginate();
 		return view('suppliers.index', compact('suppliers'));
 	}
@@ -35,7 +34,7 @@ class SuppliersController extends Controller
 
 	public function store(SupplierRequest $request)
 	{
-        $this->authorize('view');
+
 		$supplier = Supplier::create($request->all());
 		return redirect()->route('suppliers.show', $supplier->id)->with('message', 'Created successfully.');
 	}

@@ -115,10 +115,7 @@ class CapsController extends Controller
 
 	{
 
-         $request->validate([
-            'name' => 'required|unique:posts|max:255',
-            'price' => 'required',
-        ]);
+        $validated = $request->validated();
 
         $cap = Cap::create($request->all());
 
@@ -192,7 +189,9 @@ class CapsController extends Controller
 
 	public function update(CapRequest $request, Cap $cap)
 	{
+
 		$this->authorize('update', $cap);
+        $validated = $request->validated();
 		$cap->update($request->all());
 
 		return redirect()->route('caps.show', $cap->id)->with('message', 'Updated successfully.');
