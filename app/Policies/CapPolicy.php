@@ -19,4 +19,9 @@ class CapPolicy extends Policy
     {
         return  $user-> role >0 ;
     }
+
+    public function view(User $user)
+    {
+        return  $user-> role >0;
+    }
 }
