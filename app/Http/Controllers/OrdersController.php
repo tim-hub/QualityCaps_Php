@@ -21,7 +21,7 @@ class OrdersController extends Controller
 //        $this->authorize('view');
         $c_user = \Auth::user();
 
-        echo $c_user;
+//        echo $c_user;
 
         if ( (int)$c_user->role >0){
 
