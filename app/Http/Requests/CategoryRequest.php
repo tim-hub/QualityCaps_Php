@@ -13,6 +13,7 @@ class CategoryRequest extends Request
             {
                 return [
                     // CREATE ROLES
+                    'name' => 'required|unique:caps|max:255',
                 ];
             }
             // UPDATE
@@ -21,6 +22,7 @@ class CategoryRequest extends Request
             {
                 return [
                     // UPDATE ROLES
+                    'name' => 'required|unique:caps|max:255',
                 ];
             }
             case 'GET':

@@ -34,6 +34,7 @@ class CategoriesController extends Controller
 
 	public function store(CategoryRequest $request)
 	{
+//        $validated = $request->validated();
 
 		$category = Category::create($request->all());
 		return redirect()->route('categories.show', $category->id)->with('message', 'Created successfully.');
@@ -47,6 +48,7 @@ class CategoriesController extends Controller
 
 	public function update(CategoryRequest $request, Category $category)
 	{
+//        $validated = $request->validated();
 		$this->authorize('update', $category);
 		$category->update($request->all());
 

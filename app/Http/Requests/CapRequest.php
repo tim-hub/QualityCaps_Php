@@ -13,6 +13,12 @@ class CapRequest extends Request
             {
                 return [
                     // CREATE ROLES
+
+                        'name' => 'required|unique:caps|max:255',
+                        'price' => 'required',
+                        'supplier_id' => 'required',
+                        'category_id'  => 'required',
+
                 ];
             }
             // UPDATE
@@ -21,6 +27,10 @@ class CapRequest extends Request
             {
                 return [
                     // UPDATE ROLES
+
+                    'price' => 'required',
+                    'supplier_id' => 'required',
+                    'category_id'  => 'required',
                 ];
             }
             case 'GET':
