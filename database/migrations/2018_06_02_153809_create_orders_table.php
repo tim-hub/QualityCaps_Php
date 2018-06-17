@@ -18,11 +18,11 @@ class CreateOrdersTable extends Migration
             $table->timestamps();
             $table->integer('user_id');
 
-            $table->integer('status') -> default(0);
+            $table->integer('status') ->default(0);
 
             $table->string('receiver_name', 100);
 
-            $table->decimal('gst', 10, 2) -> default(0.15);
+            $table->decimal('gst', 10, 2) ->default(0.15);
             // $table->decimal('grand_total', 18, 2) ->nullable;
 
             $table->string('address', 100);
