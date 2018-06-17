@@ -14,7 +14,7 @@ class OrderRequest extends Request
                 return [
                     // CREATE ROLES
                     'user_id' => 'required',
-                    'receiver' => 'required',
+                    'receiver_name' => 'required',
                     'address' => 'required'
                 ];
             }
