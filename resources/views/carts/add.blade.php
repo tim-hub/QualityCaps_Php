@@ -1,6 +1,6 @@
 
 {{--if user is administrator, cannot process an order--}}
-@if (!Auth::guest() && Auth::user()-> role <9)
+@if (Auth::guest() || Auth::user()-> role <9)
 <form action="{{route('carts.store')}}" method="POST">
     {!! csrf_field() !!}
     <input type="hidden" name="id" value="{{ $cap->id }}">
