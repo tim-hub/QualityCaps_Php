@@ -28,6 +28,22 @@
             @yield('content')
         </main>
 
+        <button
+            style="
+            position:fixed;
+	width:160px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#0C9;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+	margin-top:22px;
+"
+            class=" btn btn-lg btn-successful" href="{{ route('carts.index') }}">{{ __('Shopping Carts') }}</button>
+
         <hr>
 
         @include('layouts.footer')
