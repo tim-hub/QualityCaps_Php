@@ -57,6 +57,7 @@
                                     <td class="text-right">
                                         <ul class="d-inline-flex">
 
+                                            @if (Auth::user() ->role >0 )
                                             <li class="list-inline-item">
                                                 <form action="{{ url('orders-change-status') }}" method="POST" style="display: inline;" >
                                                     {{csrf_field()}}
@@ -69,6 +70,7 @@
                                                     </button>
                                                 </form>
                                             </li>
+                                            @endif
 
                                         <li class="list-inline-item">
                                         <a class="btn btn-xs btn-primary" href="{{ route('orders.show', $order->id) }}">

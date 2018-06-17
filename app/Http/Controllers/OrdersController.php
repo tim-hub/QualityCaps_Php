@@ -19,8 +19,20 @@ class OrdersController extends Controller
 	public function index()
 	{
 //        $this->authorize('view');
+        $c_user = \Auth::user();
 
-		$orders = Order::paginate();
+
+        if ($c_user -> roler ===0){
+
+        $orders = new Order();
+        $orders = $orders->where('user_id', $c_user->id) ->paginate(16);
+
+
+        }else{
+            $orders = Order::paginate(16);
+        }
+
+//		$orders = Order::paginate();
 		return view('orders.index', compact('orders'));
 	}
 
