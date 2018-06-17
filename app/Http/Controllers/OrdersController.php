@@ -21,16 +21,19 @@ class OrdersController extends Controller
 //        $this->authorize('view');
         $c_user = \Auth::user();
 
+        echo $c_user;
 
-        if ($c_user -> roler ===0){
+        if ( (int)$c_user->role >0){
 
-        $orders = new Order();
-        $orders = $orders->where('user_id', $c_user->id) ->paginate(16);
-
+            $orders = Order::paginate(16);
 
         }else{
-            $orders = Order::paginate(16);
+
+            $orders = new Order();
+            $orders = $orders->where('user_id', $c_user->id) ->paginate(16);
+
         }
+
 
 //		$orders = Order::paginate();
 		return view('orders.index', compact('orders'));
