@@ -16,7 +16,7 @@ class SuppliersController extends Controller
 
 	public function index()
 	{
-        $this->authorize('view');
+//        $this->authorize('view');
 		$suppliers = Supplier::paginate();
 		return view('suppliers.index', compact('suppliers'));
 	}
